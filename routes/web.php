@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 Route::get('/quotation/create', [QuotationController::class, 'create'])->name('quotation.create');
 Route::post('/quotation/store', [QuotationController::class, 'store'])->name('quotation.store');
+
