@@ -56,18 +56,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($quotations as $index => $item)
+                @foreach($quotations as $q)
                 <tr>
-                    <td>{{ $index + 1 }}</td>
-                    <td>{{ $item->nama_perusahaan }}</td>
-                    <td>{{ $item->nama_pic }}</td>
-                    <td>{{ $item->whatsapp_pic }}</td>
-                    <td>{{ $item->jenis_kapal }}</td>
-                    <td>{{ $item->nama_kapal }}</td>
-                    <td>{{ $item->gt }}</td>
-                    <td>{{ $item->pelabuhan_tujuan }}</td>
-                    <td>{{ $item->rencana_kegiatan }}</td>
-                    <td>{{ $item->estimasi_tiba }}</td>
+                    <td>{{ $loop->iteration }}</td>
+                    {{-- Ganti semua $item menjadi $q --}}
+                    <td>{{ $q->nama_perusahaan }}</td>
+                    <td>{{ $q->nama_pic }}</td>
+                    <td>{{ $q->whatsapp_pic }}</td>
+                    <td>{{ $q->jenis_kapal }}</td>
+                    <td>{{ $q->nama_kapal }}</td>
+                    @if($q->nama_kapal_extra) / {{ $q->nama_kapal_extra }} @endif
+                    <td>{{ $q->gt }}</td>
+                    <td>{{ $q->pelabuhan_tujuan }}</td>
+                    <td>{{ $q->rencana_kegiatan }}</td>
+                    @if($q->kegiatan_detail) ({{ $q->kegiatan_detail }}) @endif
+                    <td>{{ $q->estimasi_tiba }}</td>
                     <td><a href="#" class="btn-unduh">Unduh</a></td>
                 </tr>
                 @endforeach
