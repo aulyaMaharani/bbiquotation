@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') - Bosowa Bandar Indonesia</title>
     <style>
-        /* --- CSS GLOBAL & LAYOUT --- */
+        /* CSS GLOBAL (SESUAI GAMBAR) */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #0d2745; 
+            background-color: #05192d; /* Biru gelap pekat sesuai gambar */
             margin: 0; 
             color: white;
             display: flex;
@@ -16,78 +16,93 @@
             min-height: 100vh;
         }
 
+        /* NAVBAR */
         .navbar {
-            background: rgba(26, 58, 95, 0.8);
-            padding: 15px 50px;
+            background: rgba(26, 58, 95, 0.4); /* Transparan blur */
+            padding: 15px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(10px);
         }
+        .navbar img { height: 45px; background: white; border-radius: 50%; padding: 2px; }
 
-        .container { flex: 1; padding: 50px 20px; }
-
-        /* --- DESIGN LANDING PAGE (Gbr 7) --- */
-        .hero-section { text-align: center; max-width: 900px; margin: 0 auto; }
-        .hero-title { font-size: 3.5rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
-        .hero-title span { color: #8bb4f3; }
-        .hero-subtitle { font-size: 1.2rem; color: #d1d1d1; margin-bottom: 40px; }
+        /* BUTTONS */
+        .btn-nav {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
 
         .btn-main {
-            background: #8bb4f3; color: #0d2745; padding: 15px 40px;
-            border-radius: 10px; font-weight: bold; font-size: 1.5rem;
-            text-decoration: none; transition: 0.3s; display: inline-block;
+            background: #8bb4f3; /* Biru muda tombol utama */
+            color: #FFFF;
+            padding: 15px 45px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 24px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
         }
-        .btn-main:hover { transform: scale(1.05); background: #7aa3e2; }
 
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 60px; }
-        .feature-box { background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 15px; text-align: left; }
-        .feature-box h3 { margin-top: 15px; color: white; }
+        /* LANDING PAGE ELEMENTS */
+        .container { flex: 1; padding: 60px 20px; text-align: center; }
+        .hero-title { font-size: 42px; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+        .hero-title span { color: #8bb4f3; opacity: 0.9; }
+        .hero-subtitle { font-size: 16px; color: #cbd5e0; max-width: 800px; margin: 0 auto 50px auto; line-height: 1.6; }
 
-        /* --- DESIGN FORM QUOTATION (Gbr 8) --- */
-        .form-card {
-            background: white; color: #333; width: 95%; max-width: 800px;
-            margin: 0 auto; padding: 50px; border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative;
+        /* GRID FEATURES */
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 60px auto; }
+        .feature-box { background: rgba(255, 255, 255, 0.1); padding: 35px; border-radius: 15px; text-align: left; }
+        .feature-box h3 { margin: 15px 0 10px 0; font-size: 18px; }
+        .feature-box p { font-size: 13px; color: #cbd5e0; margin: 0; line-height: 1.5; }
+
+        /* CARA MENGAJUKAN SECTION */
+        .steps-card { background: rgba(255,255,255,0.08); max-width: 750px; margin: 50px auto; padding: 50px; border-radius: 20px; text-align: left; }
+        .step-item { display: flex; align-items: flex-start; margin-bottom: 30px; }
+        .step-num { background: #8bb4f3; color: #05192d; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 25px; flex-shrink: 0; }
+
+        /* FORM CARD ELEMENTS */
+        .form-card { 
+            background: white; color: #333; width: 95%; max-width: 500px; 
+            margin: 0 auto; padding: 45px; border-radius: 20px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5); position: relative;
         }
-        .form-card h2 { color: #1a3a5f; text-align: center; margin-bottom: 10px; }
-        .form-card p { text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 30px; }
+        .form-group { text-align: left; margin-bottom: 18px; }
+        label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: #444; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
 
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; color: #444; }
-        input, select {
-            width: 100%; padding: 12px; border: 1px solid #ddd;
-            border-radius: 8px; font-size: 1rem; box-sizing: border-box;
-        }
-        input:focus { border-color: #8bb4f3; outline: none; box-shadow: 0 0 8px rgba(139, 180, 243, 0.5); }
-
-        /* --- FOOTER --- */
-        footer { background: #081a2e; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); }
-
-        /* --- ANIMASI LOADING --- */
-        #loader {
+        /* ANIMASI PULSE LOGO */
+        #loading {
             display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255,255,255,0.9); border-radius: 20px; z-index: 10;
-            justify-content: center; align-items: center; flex-direction: column;
+            background: rgba(255,255,255,0.9); z-index: 100; justify-content: center; align-items: center; flex-direction: column; border-radius: 20px;
         }
-        .pulse-logo { width: 100px; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { transform: scale(0.9); } 50% { transform: scale(1.1); } 100% { transform: scale(0.9); } }
+        .pulse-logo { width: 90px; animation: pulse-anim 1.5s infinite ease-in-out; }
+        @keyframes pulse-anim { 0%, 100% { transform: scale(0.9); } 50% { transform: scale(1.1); } }
+
+        /* FOOTER */
+        footer { padding: 30px; text-align: center; background: #03111f; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <img src="{{ asset('images/logo-bosowa.png') }}" style="height: 45px;">
-        @yield('nav-button')
+        <img src="{{ asset('images/logo-bosowa.png') }}" alt="Logo">
+        @yield('nav-action')
     </nav>
 
-    <div class="container">
+    <main class="container">
         @yield('content')
-    </div>
+    </main>
 
     <footer>
         © 2026 Bosowa Bandar Indonesia. All rights reserved.
     </footer>
 
-    @yield('scripts')
+    @stack('scripts')
 </body>
 </html>
