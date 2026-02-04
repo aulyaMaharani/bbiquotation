@@ -103,6 +103,74 @@
         /* FOOTER & MISC */
         footer { padding: 30px; text-align: center; background: #03111f; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
         .hidden { display: none; }
+
+        /* Tambahkan atau perbarui CSS ini di dalam <style> layout/main.blade.php */
+
+.container-login {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Kartu putih ini yang akan membatasi lebar kolom email */
+.login-card {
+    background: white;
+    color: #333;
+    width: 100%;
+    max-width: 450px; /* Membatasi agar tidak terlalu lebar */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.form-group-login {
+    margin-bottom: 25px;
+}
+
+.form-group-login label {
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Tombol Masuk Biru */
+.btn-login-submit {
+    background: #8bb4f3;
+    color: #0d2745;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+/* Tombol Kembali Putih */
+.btn-login-back {
+    background: white;
+    color: #333;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
     </style>
 </head>
 <body>
