@@ -3,7 +3,8 @@
 @section('title', 'Sistem Manajemen Quotation')
 
 @section('nav-action')
-    <a href="#" class="btn-nav">Login Internal</a>
+    {{-- Ubah # menjadi route('login') --}}
+    <a href="{{ route('login') }}" class="btn-nav">Login Internal</a>
 @endsection
 
 @section('content')

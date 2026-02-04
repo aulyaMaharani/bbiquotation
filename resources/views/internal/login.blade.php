@@ -24,7 +24,8 @@
             </div>
 
             <button type="submit" class="btn-masuk">Masuk</button>
-            <a href="/" class="btn-outline">Kembali Ke Beranda</a>
+            {{-- Ubah / menjadi route('landing') --}}
+            <a href="{{ route('landing') }}" class="btn-outline">Kembali Ke Beranda</a>
         </form>
     </div>
 
