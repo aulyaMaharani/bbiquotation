@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #0b2b4a, #081f36);
+    color: #ffffff;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 40px;
+    background-color: #2a3f55;
+}
+
+.btn-login {
+    background-color: #5f6f7f;
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px 80px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero h1 span {
+    color: #7ec8ff;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: #7aa9dc;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* FEATURE CARDS */
+.feature-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background-color: #344e68;
+    width: 230px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.feature-card .icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* STEPS */
+.steps-box {
+    margin: 60px auto 0;
+    background-color: #344e68;
+    padding: 30px;
+    max-width: 500px;
+    border-radius: 14px;
+    text-align: left;
+}
+
+.steps-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.step-number {
+    width: 28px;
+    height: 28px;
+    background-color: #7ec8ff;
+    color: #0b2b4a;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 16px;
+    background-color: #2a3f55;
+    font-size: 13px;
+}
