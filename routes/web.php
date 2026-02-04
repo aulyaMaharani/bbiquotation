@@ -11,3 +11,4 @@ Route::get('/quotation/create', [QuotationController::class, 'create'])->name('q
 Route::post('/quotation/store', [QuotationController::class, 'store'])->name('quotation.store');
 // Tambahkan ini di web.php
 Route::get('/quotation', [QuotationController::class, 'create']);
+Route::get('/login', function () { return view('auth.login');})->name('login');
