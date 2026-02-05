@@ -62,35 +62,150 @@
         /* CONTAINER */
         .container { flex: 1; padding: 60px 20px; text-align: center; }
 
-        /* --- LANDING PAGE ELEMENTS --- */
-        .hero-title { font-size: 42px; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
-        .hero-title span { color: #8bb4f3; opacity: 0.9; }
-        .hero-subtitle { font-size: 16px; color: #cbd5e0; max-width: 800px; margin: 0 auto 50px auto; line-height: 1.6; }
+/* --- LANDING PAGE ELEMENTS --- */
+.hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
 
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 60px auto; }
-        .feature-box { background: rgba(255, 255, 255, 0.1); padding: 35px; border-radius: 15px; text-align: left; }
-        .feature-box h3 { margin: 15px 0 10px 0; font-size: 18px; }
-        .feature-box p { font-size: 13px; color: #cbd5e0; margin: 0; line-height: 1.5; }
+.hero-title span {
+    color: #8bb4f3;
+    opacity: 0.9;
+}
 
-        .steps-card { background: rgba(255,255,255,0.08); max-width: 750px; margin: 50px auto; padding: 50px; border-radius: 20px; text-align: left; }
-        .step-item { display: flex; align-items: flex-start; margin-bottom: 30px; }
-        .step-num { background: #8bb4f3; color: #05192d; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 25px; flex-shrink: 0; }
+.hero-subtitle {
+    font-size: 16px;
+    color: #cbd5e0;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 60px auto;
+}
+
+.feature-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 35px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.feature-box h3 {
+    margin: 15px 0 10px 0;
+    font-size: 18px;
+}
+
+.feature-box p {
+    font-size: 13px;
+    color: #cbd5e0;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.steps-card {
+    background: rgba(255, 255, 255, 0.08);
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.step-num {
+    background: #8bb4f3;
+    color: #05192d;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 25px;
+    flex-shrink: 0;
+}
+
 
         /* --- FORM CARD ELEMENTS --- */
-        .form-card { 
-            background: white; color: #333; width: 95%; max-width: 880px; 
-            margin: 0 auto; padding: 60px; border-radius: 25px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative;
-        }
-        .form-card h2 { color: #1a3a5f; margin: 0; font-size: 32px; font-weight: 800; }
-        .form-card p.subtitle { color: #666; font-size: 15px; text-align: center; margin-bottom: 45px; }
+.form-card { 
+    background: white; 
+    color: #333; 
+    width: 95%; 
+    max-width: 880px; 
+    margin: 0 auto; 
+    padding: 60px; 
+    border-radius: 25px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+    position: relative;
 
-        .form-group { text-align: left; margin-bottom: 25px; }
-        label { display: block; font-weight: bold; font-size: 17px; margin-bottom: 10px; color: #333; }
-        input, select, textarea { 
-            width: 100%; padding: 16px; border: 1px solid #ccc; border-radius: 10px; 
-            box-sizing: border-box; background: #fdfdfd; font-size: 18px; font-family: 'Poppins', sans-serif; 
-        }
+    /* FIX: agar judul & subtitle center */
+    text-align: center;
+}
+
+.form-card h2 { 
+    color: #1a3a5f; 
+    margin: 0; 
+    font-size: 32px; 
+    font-weight: 800; 
+}
+
+.form-card p.subtitle { 
+    color: #666; 
+    font-size: 15px; 
+    text-align: center; 
+    margin-bottom: 45px; 
+}
+
+/* FIX: isi form tetap rata kiri */
+.form-card form {
+    text-align: left;
+}
+
+.form-group { 
+    text-align: left; 
+    margin-bottom: 25px; 
+}
+
+label { 
+    display: block; 
+    font-weight: bold; 
+    font-size: 17px; 
+    margin-bottom: 10px; 
+    color: #333; 
+}
+
+input, select, textarea { 
+    width: 100%; 
+    padding: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-sizing: border-box; 
+    background: #fdfdfd; 
+    font-size: 18px; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+/* FIX: tombol Minta Quotation ke tengah */
+.form-card .btn-submit {
+    display: block;
+    margin: 40px auto 0 auto;
+}
+
 
         /* ANIMASI LOADING */
         #loading {
@@ -104,6 +219,9 @@
         footer { padding: 30px; text-align: center; background: #03111f; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
         .hidden { display: none; }
 
+
+
+/* --- LOGIN ---*/
 .container-login {
     flex: 1;
     display: flex;
@@ -155,7 +273,7 @@
 
 /* Tombol Kembali Putih */
 .btn-login-back {
-    background: white;
+    background: 8bb4f3;
     color: #333;
     width: 100%;
     padding: 12px;
@@ -169,9 +287,7 @@
     transition: 0.3s;
 }
 
-
-
-/* --- CSS GLOBAL --- */
+/* --- CSS DASHBOARD INTERNAL--- */
 body { 
     font-family: 'Sora', sans-serif; 
     margin: 0; 
@@ -198,7 +314,6 @@ body.bg-white { background-color: #ffffff; color: #333; }
     /* GANTI BARIS DI BAWAH INI MENJADI NONE */
     box-shadow: none !important; 
 }
-
 
 .navbar-dash img { height: 45px; background: white; border-radius: 50%; padding: 2px; }
 
@@ -242,12 +357,8 @@ body.bg-white { background-color: #ffffff; color: #333; }
     </style>
 </head>
 
-
-
-
-
 <body>
-    <nav class="navbar-dash">
+    <nav class="navbar">
         <img src="{{ asset('images/logo-bosowa.png') }}" alt="Logo Bosowa">
         @yield('nav-action')
     </nav>

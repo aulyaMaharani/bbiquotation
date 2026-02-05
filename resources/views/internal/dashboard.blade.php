@@ -27,7 +27,7 @@
 @section('content')
 <div class="dash-content">
     
-    <h1 style="text-align: left; font-weight: 800; color: #0d2745; margin-bottom: 25px; font-size: 28px;">Riwayat Permohonan Quotation</h1>
+    <h1 style="text-align: left; font-weight: 800; color: #FFFF; margin-bottom: 25px; font-size: 28px;">Riwayat Permohonan Quotation</h1>
 
     <div class="card-white">
         <div style="display: flex; gap: 20px; align-items: flex-end;">
@@ -64,7 +64,9 @@
                         <th>Jenis Kapal</th>
                         <th>Nama Kapal</th>
                         <th>GT</th>
-                        <th>Tujuan Pelabuhan</th>
+                        <th>Pelabuhan Tujuan</th>
+                        <th>Estimasi Tiba (ETA)</th>
+                        <th>Rencana Kegiatan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -79,6 +81,8 @@
                         <td>{{ $item->nama_kapal }}</td>
                         <td>{{ $item->gt }}</td>
                         <td>{{ $item->pelabuhan_tujuan }}</td>
+                        <td>{{ $item->estimasi_tiba }}</td>
+                        <td>{{ $item->rencana_kegiatan}}</td>
                         <td>
                             <a href="#" style="background: #1a3a5f; color: white; padding: 8px 15px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; display: inline-block;">
                                 Unduh
