@@ -9,7 +9,7 @@
         /* --- CSS GLOBAL & LAYOUT --- */
         body { 
             font-family: 'SORA', sans-serif; 
-            background-color: #05192d; 
+            background-color: #0A2647; 
             margin: 0; 
             color: white;
             display: flex;
@@ -239,7 +239,46 @@ body.bg-white { background-color: #ffffff; color: #333; }
     transform: scale(1.02);
 }
 
+/* Tambahkan ini di bagian paling bawah style Anda */
+
+/* Memastikan teks di dalam kartu putih selalu hitam, bukan putih */
+.card-white {
+    color: #000000 !important;
+}
+
+/* Memastikan teks di dalam tabel (selain header) berwarna hitam */
+.bbi-table td {
+    color: #000000 !important;
+    font-weight: 500;
+}
+
+/* Header tabel tetap biru tua dengan teks putih agar kontras */
+.table-header {
+    background-color: #1a3a5f !important;
+    color: #ffffff !important;
+}
+
+/* Jika ada teks "Menampilkan 1 data" atau label pencarian, buat jadi hitam juga */
+.card-white label, .card-white p, .card-white span {
+    color: #333333 !important;
+}
+
+    .form-group-dash input, .form-group-dash select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        color: #000 !important; /* Memastikan teks input berwarna hitam */
+    }
+    .form-group-dash label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333 !important;
+    }
+
     </style>
+
 </head>
 
 

@@ -4,14 +4,14 @@
 
 @push('scripts')
 <script>
-    // Memastikan background body menjadi putih khusus halaman ini
+    // Memastikan background halaman dashboard tetap putih
     document.body.classList.add('bg-white');
     document.body.classList.remove('bg-dark');
 </script>
 @endpush
 
 @section('nav-action')
-    <form action="#" method="POST" style="margin: 0;">
+    <form action="{{ route('logout') }}" method="POST">
         @csrf
         <button type="submit" class="btn-exit-bbi">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -30,25 +30,41 @@
     <h1 style="text-align: left; font-weight: 800; color: #0d2745; margin-bottom: 25px; font-size: 28px;">Riwayat Permohonan Quotation</h1>
 
     <div class="card-white">
-        <div style="display: flex; gap: 20px; align-items: flex-end;">
-            <div style="flex: 2;">
-                <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Cari Nama Perusahaan</label>
-                <input type="text" placeholder="Ketik Nama Perusahaan" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif;">
+        <form action="{{ route('dashboard') }}" method="GET">
+            <div style="display: flex; gap: 20px; align-items: flex-end;">
+                
+                <div style="flex: 2;">
+                    <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Cari Nama Perusahaan</label>
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Ketik Nama Perusahaan" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif; color: #000;">
+                </div>
+
+                <div style="flex: 1;">
+                    <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Bulan</label>
+                    <select name="month" onchange="this.form.submit()" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif; color: #000;">
+                        <option value="">Semua Bulan</option>
+                        @for ($i = 1; $i <= 12; $i++)
+                            <option value="{{ $i }}" {{ request('month') == $i ? 'selected' : '' }}>
+                                {{ date('F', mktime(0, 0, 0, $i, 1)) }}
+                            </option>
+                        @endfor
+                    </select>
+                </div>
+
+                <div style="flex: 1;">
+                    <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Tahun</label>
+                    <select name="year" onchange="this.form.submit()" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif; color: #000;">
+                        <option value="">Semua Tahun</option>
+                        @php $startYear = date('Y'); @endphp
+                        @for ($y = $startYear; $y >= $startYear - 5; $y--)
+                            <option value="{{ $y }}" {{ request('year') == $y ? 'selected' : '' }}>{{ $y }}</option>
+                        @endfor
+                    </select>
+                </div>
+
+                <button type="submit" style="padding: 12px 25px; background: #1a3a5f; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: 'Sora', sans-serif;">Cari</button>
+                <a href="{{ route('dashboard') }}" style="padding: 12px 25px; background: #eee; color: #333; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: 'Sora', sans-serif; font-size: 14px; text-align: center;">Reset Filter</a>
             </div>
-            <div style="flex: 1;">
-                <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Bulan</label>
-                <select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif;">
-                    <option>Semua Bulan</option>
-                </select>
-            </div>
-            <div style="flex: 1;">
-                <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Tahun</label>
-                <select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif;">
-                    <option>Semua Tahun</option>
-                </select>
-            </div>
-            <button type="reset" style="padding: 12px 25px; background: #eee; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: 'Sora', sans-serif;">Reset Filter</button>
-        </div>
+        </form>
         <p style="font-size: 12px; margin-top: 15px; color: #888; text-align: left;">Menampilkan {{ count($quotations) }} data</p>
     </div>
 
@@ -57,28 +73,28 @@
             <table class="bbi-table">
                 <thead class="table-header">
                     <tr>
-                        <th>No</th>
-                        <th>Nama Perusahaan</th>
-                        <th>Nama PIC</th>
-                        <th>WhatsApp PIC</th>
-                        <th>Jenis Kapal</th>
-                        <th>Nama Kapal</th>
-                        <th>GT</th>
-                        <th>Tujuan Pelabuhan</th>
-                        <th>Aksi</th>
+                        <th style="color: white;">No</th>
+                        <th style="color: white;">Nama Perusahaan</th>
+                        <th style="color: white;">Nama PIC</th>
+                        <th style="color: white;">WhatsApp PIC</th>
+                        <th style="color: white;">Jenis Kapal</th>
+                        <th style="color: white;">Nama Kapal</th>
+                        <th style="color: white;">GT</th>
+                        <th style="color: white;">Tujuan Pelabuhan</th>
+                        <th style="color: white;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($quotations as $index => $item)
                     <tr>
-                        <td>{{ $index + 1 }}</td>
+                        <td style="color: #000;">{{ $index + 1 }}</td>
                         <td style="font-weight: bold; color: #0d2745;">{{ $item->nama_perusahaan }}</td>
-                        <td>{{ $item->nama_pic }}</td>
-                        <td>{{ $item->whatsapp_pic }}</td>
-                        <td>{{ $item->jenis_kapal }}</td>
-                        <td>{{ $item->nama_kapal }}</td>
-                        <td>{{ $item->gt }}</td>
-                        <td>{{ $item->pelabuhan_tujuan }}</td>
+                        <td style="color: #000;">{{ $item->nama_pic }}</td>
+                        <td style="color: #000;">{{ $item->whatsapp_pic }}</td>
+                        <td style="color: #000;">{{ $item->jenis_kapal }}</td>
+                        <td style="color: #000;">{{ $item->nama_kapal }}</td>
+                        <td style="color: #000;">{{ $item->gt }}</td>
+                        <td style="color: #000;">{{ $item->pelabuhan_tujuan }}</td>
                         <td>
                             <a href="#" style="background: #1a3a5f; color: white; padding: 8px 15px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; display: inline-block;">
                                 Unduh
@@ -87,7 +103,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="9">Belum ada data permohonan.</td>
+                        <td colspan="9" style="padding: 30px; color: #888; text-align: center;">Data tidak ditemukan.</td>
                     </tr>
                     @endforelse
                 </tbody>

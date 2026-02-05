@@ -7,17 +7,30 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // 1. Cek proteksi login
-        if (!session('admin_logged_in')) {
-            return redirect()->route('login');
+        // 1. Mulai Query
+        $query = DB::table('quotations');
+
+        // 2. Logika Filter Nama Perusahaan
+        if ($request->filled('search')) {
+            $query->where('nama_perusahaan', 'like', '%' . $request->search . '%');
         }
 
-        // 2. Ambil semua data dari tabel quotations
-        $quotations = DB::table('quotations')->orderBy('created_at', 'desc')->get();
+        // 3. Logika Filter Bulan
+        if ($request->filled('month')) {
+            $query->whereMonth('created_at', $request->month);
+        }
 
-        // 3. Kirim variabel $quotations ke view (SANGAT PENTING)
+        // 4. Logika Filter Tahun
+        if ($request->filled('year')) {
+            $query->whereYear('created_at', $request->year);
+        }
+
+        // 5. Eksekusi dan urutkan dari yang terbaru
+        $quotations = $query->orderBy('created_at', 'desc')->get();
+
+        // 6. Kirim ke View
         return view('internal.dashboard', compact('quotations'));
     }
 }
