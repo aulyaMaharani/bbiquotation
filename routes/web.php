@@ -26,3 +26,4 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 // Tambahkan rute LOGOUT dengan method POST
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/quotation/download/{id}', [DashboardController::class, 'downloadPDF'])->name('quotation.download');
