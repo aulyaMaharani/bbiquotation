@@ -8,7 +8,7 @@
     <style>
         /* --- CSS GLOBAL & LAYOUT --- */
         body { 
-            font-family: 'Poppins', sans-serif; 
+            font-family: 'SORA', sans-serif; 
             background-color: #05192d; 
             margin: 0; 
             color: white;
@@ -45,7 +45,7 @@
 
         .btn-main, .btn-submit {
             background: #8bb4f3;
-            color: #0d2745;
+            color: #FFFF;
             padding: 15px 45px;
             border-radius: 12px;
             font-weight: bold;
@@ -103,8 +103,6 @@
         /* FOOTER & MISC */
         footer { padding: 30px; text-align: center; background: #03111f; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
         .hidden { display: none; }
-
-        /* Tambahkan atau perbarui CSS ini di dalam <style> layout/main.blade.php */
 
 .container-login {
     flex: 1;
@@ -171,22 +169,95 @@
     transition: 0.3s;
 }
 
+
+
+/* --- CSS GLOBAL --- */
+body { 
+    font-family: 'Sora', sans-serif; 
+    margin: 0; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+/* Background dinamis: Default Biru Tua, kecuali diatur lain */
+body.bg-dark { background-color: #05192d; color: white; }
+body.bg-white { background-color: #ffffff; color: #333; }
+
+
+/* NAVBAR DASHBOARD */
+.navbar-dash {
+    background: #05192d; 
+    background-color: #0A2647 !important;
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border: none !important;
+    /* GANTI BARIS DI BAWAH INI MENJADI NONE */
+    box-shadow: none !important; 
+}
+
+
+.navbar-dash img { height: 45px; background: white; border-radius: 50%; padding: 2px; }
+
+/* --- KONTAINER TERPISAH DENGAN DROP SHADOW --- */
+.dash-content { padding: 40px 60px; }
+
+.card-white {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px; /* Jarak antar kontainer */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Drop Shadow agar terlihat kontainer */
+}
+
+/* TABEL HEADER BIRU TUA */
+.table-header { background-color: #1a3a5f; color: white; }
+.bbi-table { width: 100%; border-collapse: collapse; }
+.bbi-table th, .bbi-table td { padding: 15px; border: 1px solid #edf2f7; text-align: center; }
+
+/* TOMBOL KELUAR PROFESIONAL (Gbr 16) */
+.btn-exit-bbi {
+    background-color: #ff0000; /* Merah terang Gbr 16 */
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-family: 'Sora', sans-serif;
+    transition: 0.3s;
+}
+
+.btn-exit-bbi:hover {
+    background-color: #e04a4a;
+    transform: scale(1.02);
+}
+
     </style>
 </head>
+
+
+
+
+
 <body>
-    <nav class="navbar">
+    <nav class="navbar-dash">
         <img src="{{ asset('images/logo-bosowa.png') }}" alt="Logo Bosowa">
         @yield('nav-action')
     </nav>
 
-    <main class="container">
+    <main class="dash-content">
         @yield('content')
     </main>
 
     <footer>
         © 2026 Bosowa Bandar Indonesia. All rights reserved.
     </footer>
-
-    @stack('scripts')
 </body>
 </html>
