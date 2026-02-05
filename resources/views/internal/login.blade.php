@@ -24,12 +24,24 @@
             
             <div class="form-group-login">
                 <label style="color: white; display: block; margin-bottom: 8px;">Email</label>
-                <input type="email" name="email" value="{{ old('email') }}" placeholder="Masukkan email anda" style="width: 100%; padding: 12px; border-radius: 8px; border: none;" required>
+                <input type="email" name="email" value="{{ Cookie::get('remember_email') ?? old('email') }}" placeholder="Masukkan email anda" required>
             </div>
 
             <div class="form-group-login" style="margin-top: 15px;">
                 <label style="color: white; display: block; margin-bottom: 8px;">Password</label>
-                <input type="password" name="password" placeholder="Masukkan password anda" style="width: 100%; padding: 12px; border-radius: 8px; border: none;" required>
+                <input type="password" name="password" value="{{ Cookie::get('remember_password') }}" placeholder="Masukkan password anda" required>
+            </div>
+
+            <div class="form-group-login" style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                {{-- Input Checkbox --}}
+                <input type="checkbox" name="remember" id="remember" 
+                    {{ Cookie::get('remember_email') ? 'checked' : '' }} 
+                    style="width: 18px; height: 18px; cursor: pointer; margin: 0;">
+                
+                {{-- Label Teks --}}
+                <label for="remember" style="color: #4a5568; cursor: pointer; font-size: 14px; user-select: none; margin: 0;">
+                    Ingat Saya
+                </label>
             </div>
 
             <button type="submit" class="btn-login-submit" style="width: 100%; padding: 12px; margin-top: 25px; background: #8bb4f3; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Masuk</button>
