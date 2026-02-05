@@ -13,24 +13,17 @@ return new class extends Migration
     {
         Schema::create('quotations', function (Blueprint $table) {
             $table->id();
-            
-            // Data Identitas
             $table->string('nama_perusahaan');
             $table->string('nama_pic');
             $table->string('whatsapp_pic');
-            
-            // Data Kapal
-            $table->string('jenis_kapal'); // General Cargo, Tugboat/Barge, dll
+            $table->string('jenis_kapal'); 
             $table->string('nama_kapal');
-            $table->string('nama_kapal_extra')->nullable(); // Khusus untuk nama Barge jika pilih Tugboat/Barge
-            $table->string('gt'); // Dropdown: Tugboat atau Barge
-            
-            // Data Operasional
+            $table->string('nama_kapal_extra')->nullable(); // Penting: nullable
+            $table->string('gt'); 
             $table->string('pelabuhan_tujuan');
             $table->date('estimasi_tiba');
-            $table->string('rencana_kegiatan'); // Muat, Bongkar, Lain-lain
-            $table->text('kegiatan_detail')->nullable(); // Deskripsi jika pilih 'Lain-lain'
-            
+            $table->string('rencana_kegiatan'); 
+            $table->text('kegiatan_detail')->nullable(); // Penting: nullable
             $table->timestamps();
         });
     }

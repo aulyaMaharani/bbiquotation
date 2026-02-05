@@ -22,3 +22,7 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 // Memproses data login
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login.post');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Rute Dashboard tetap GET
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Tambahkan rute LOGOUT dengan method POST
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

@@ -41,4 +41,15 @@ class AuthController extends Controller
 
         return back()->withErrors(['loginError' => 'Email atau Password salah!'])->withInput();
     }
+
+    public function logout(Request $request)
+    {
+        // Hapus session login
+        session()->forget('admin_logged_in');
+        
+        // Opsional: Hapus semua session
+        $request->session()->flush();
+
+        return redirect()->route('login')->with('success', 'Anda telah keluar.');
+    }
 }

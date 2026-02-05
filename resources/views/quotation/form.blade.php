@@ -2,25 +2,24 @@
 
 @section('title', 'Form Pengajuan Quotation')
 
-@section('nav-action')
-    <a href="{{ route('landing') }}" class="btn-nav">Kembali</a>
-@endsection
-
 @section('content')
-<div class="form-card">
-    <div id="loading">
-        <img src="{{ asset('images/logo-bosowa.png') }}" class="pulse-logo">
-        <p style="font-weight: bold; color: #1a3a5f; margin-top: 15px;">Memproses data...</p>
-    </div>
+{{-- CSS INTERNAL UNTUK MEMASTIKAN TAMPILAN SESUAI GAMBAR --}}
+<style>
+    .form-group { margin-bottom: 15px; }
+    .hidden-field { display: none; } /* Default sembunyi */
+    .form-card { background: #fff; padding: 25px; border-radius: 15px; }
+</style>
 
+<div class="form-card">
     <h2>Formulir Pengajuan Quotation</h2>
     <p class="subtitle">Lengkapi data untuk mendapatkan penawaran terbaik</p>
 
     <form id="qForm" action="{{ route('quotation.store') }}" method="POST">
         @csrf
+        
         <div class="form-group">
             <label>Nama Perusahaan</label>
-            <input type="text" name="nama_perusahaan" value="{{ old('nama_perusahaan') }}" placeholder="Contoh: PT. Maju Bersama" required>
+            <input type="text" name="nama_perusahaan" value="{{ old('nama_perusahaan') }}" required>
         </div>
 
         <div class="form-group">
@@ -30,12 +29,13 @@
 
         <div class="form-group">
             <label>WhatsApp PIC</label>
-            <input type="text" name="whatsapp_pic" value="{{ old('whatsapp_pic') }}" placeholder="0812..." required>
+            <input type="text" name="whatsapp_pic" value="{{ old('whatsapp_pic') }}" required>
         </div>
 
         <div class="form-group">
             <label>Jenis Kapal</label>
-            <select name="jenis_kapal" id="jenis_kapal" required onchange="toggleKapalExtra()">
+            {{-- ID id_jenis_kapal untuk dipantau JS --}}
+            <select name="jenis_kapal" id="id_jenis_kapal" required onchange="jalankanLogikaKapal()">
                 <option value="">Pilih jenis kapal</option>
                 <option value="General Cargo">1. General cargo</option>
                 <option value="Tugboat/Barge">2. Tugboat/barge</option>
@@ -46,12 +46,13 @@
 
         <div class="form-group">
             <label id="label_kapal_utama">Nama Kapal</label>
-            <input type="text" name="nama_kapal" placeholder="Masukkan nama kapal">
+            <input type="text" name="nama_kapal" required>
         </div>
 
-        <div class="form-group hidden" id="group_kapal_extra">
+        {{-- Gunakan ID id_kolom_barge --}}
+        <div class="form-group hidden-field" id="id_kolom_barge">
             <label>Nama Barge (Tongkang)</label>
-            <input type="text" name="nama_kapal_extra" placeholder="Masukkan nama tongkang">
+            <input type="text" name="nama_kapal_extra">
         </div>
 
         <div class="form-group">
@@ -75,7 +76,7 @@
 
         <div class="form-group">
             <label>Rencana Kegiatan</label>
-            <select name="rencana_kegiatan" id="rencana_kegiatan" required onchange="toggleLainnya()">
+            <select name="rencana_kegiatan" id="id_rencana_kegiatan" required onchange="jalankanLogikaKegiatan()">
                 <option value="">Pilih rencana kegiatan</option>
                 <option value="Bongkar">1. Bongkar</option>
                 <option value="Muat">2. Muat</option>
@@ -83,45 +84,40 @@
             </select>
         </div>
 
-        <div class="form-group hidden" id="group_lainnya">
+        <div class="form-group hidden-field" id="id_kolom_detail">
             <label>Detail Kegiatan</label>
-            <textarea name="kegiatan_detail" rows="3" placeholder="Sebutkan rencana kegiatan Anda..."></textarea>
+            <textarea name="kegiatan_detail" rows="3"></textarea>
         </div>
 
         <button type="submit" class="btn-submit">Minta Quotation</button>
     </form>
 </div>
-@endsection
 
-@push('scripts')
+{{-- JAVASCRIPT LANGSUNG DI SINI TANPA @PUSH --}}
 <script>
-    document.getElementById('qForm').addEventListener('submit', function() {
-        document.getElementById('loading').style.display = 'flex';
-    });
+    function jalankanLogikaKapal() {
+        var pilihan = document.getElementById("id_jenis_kapal").value;
+        var kolomBarge = document.getElementById("id_kolom_barge");
+        var labelUtama = document.getElementById("label_kapal_utama");
 
-    function toggleKapalExtra() {
-        const jenis = document.getElementById('jenis_kapal').value;
-        const extraField = document.getElementById('group_kapal_extra');
-        const labelUtama = document.getElementById('label_kapal_utama');
-
-        if (jenis === 'Tugboat/Barge') {
-            extraField.classList.remove('hidden');
-            labelUtama.innerText = 'Nama Tugboat';
+        if (pilihan === "Tugboat/Barge") {
+            kolomBarge.style.display = "block";
+            labelUtama.innerText = "Nama Tugboat";
         } else {
-            extraField.classList.add('hidden');
-            labelUtama.innerText = 'Nama Kapal';
+            kolomBarge.style.display = "none";
+            labelUtama.innerText = "Nama Kapal";
         }
     }
 
-    function toggleLainnya() {
-        const kegiatan = document.getElementById('rencana_kegiatan').value;
-        const detailField = document.getElementById('group_lainnya');
+    function jalankanLogikaKegiatan() {
+        var pilihan = document.getElementById("id_rencana_kegiatan").value;
+        var kolomDetail = document.getElementById("id_kolom_detail");
 
-        if (kegiatan === 'Lain-lain') {
-            detailField.classList.remove('hidden');
+        if (pilihan === "Lain-lain") {
+            kolomDetail.style.display = "block";
         } else {
-            detailField.classList.add('hidden');
+            kolomDetail.style.display = "none";
         }
     }
 </script>
-@endpush
+@endsection
