@@ -33,11 +33,10 @@
         <div class="form-group">
             <label>Jenis Kapal</label>
             <select name="jenis_kapal" id="id_jenis_kapal" required onchange="jalankanLogikaKapal()">
-                <option value="">Pilih jenis kapal</option>
-                <option value="General Cargo">General cargo</option>
-                <option value="Tugboat/Barge">Tugboat/barge</option>
-                <option value="Mother Tanker">Mother tanker (MT)</option>
-                <option value="TBN">TBN</option>
+                <option value="General Cargo">1. General cargo</option>
+                <option value="Tugboat/Barge">2. Tugboat/barge</option>
+                <option value="Mother Tanker">3. Mother tanker (MT)</option>
+                <option value="TBN">4. TBN</option>
             </select>
         </div>
 
@@ -46,7 +45,8 @@
             <input type="text" name="nama_kapal" placeholder="Masukkan nama kapal utama" required>
         </div>
 
-        <div class="form-group hidden-field" id="id_kolom_barge">
+        {{-- Kolom Barge: Sembunyi di awal dengan hidden-field --}}
+        <div class="form-group hidden-field" id="id_kolom_barge" style="display: none;">
             <label>Nama Barge (Tongkang)</label>
             <input type="text" name="nama_kapal_extra" placeholder="Masukkan nama tongkang">
         </div>
@@ -54,23 +54,23 @@
         <div class="form-group">
             <label>GT (Gross Tonnage)</label>
             <select name="gt" id="id_gt" required onchange="jalankanLogikaGT()">
-                <option value="">Pilih GT</option>
-                <option value="Tugboat">Tugboat & Barge</option>
-                <option value="Cargo">Vessel / Cargo</option>
+                <option value="Tugboat">1. Tugboat & Barge</option>
+                <option value="Cargo">2. Cargo</option>
             </select>
         </div>
 
-        <div class="form-group hidden-field" id="gt_tugboat">
+        {{-- Kolom GT: Sembunyi di awal --}}
+        <div class="form-group hidden-field" id="gt_tugboat" style="display: none;">
             <label>GT Tugboat</label>
             <input type="number" name="gt_tugboat" placeholder="0">
         </div>
 
-        <div class="form-group hidden-field" id="gt_barge">
+        <div class="form-group hidden-field" id="gt_barge" style="display: none;">
             <label>GT Barge</label>
             <input type="number" name="gt_barge" placeholder="0">
         </div>
 
-        <div class="form-group hidden-field" id="gt_cargo">
+        <div class="form-group hidden-field" id="gt_cargo" style="display: none;">
             <label>GT Cargo</label>
             <input type="number" name="gt_cargo" placeholder="0">
         </div>
@@ -95,7 +95,8 @@
             </select>
         </div>
 
-        <div class="form-group hidden-field" id="id_kolom_detail">
+        {{-- Kolom Detail: Sembunyi di awal --}}
+        <div class="form-group hidden-field" id="id_kolom_detail" style="display: none;">
             <label>Detail Kegiatan</label>
             <textarea name="kegiatan_detail" rows="3" placeholder="Sebutkan detail kegiatan lainnya..."></textarea>
         </div>
@@ -107,6 +108,7 @@
 </div>
 
 <script>
+    // Fungsi untuk Logika Nama Kapal & Barge
     function jalankanLogikaKapal() {
         var pilihan = document.getElementById("id_jenis_kapal").value;
         var kolomBarge = document.getElementById("id_kolom_barge");
@@ -121,12 +123,14 @@
         }
     }
 
+    // Fungsi untuk Logika GT (Tugboat, Barge, Cargo)
     function jalankanLogikaGT() {
         var gt = document.getElementById("id_gt").value;
         var gtTugboat = document.getElementById("gt_tugboat");
         var gtBarge = document.getElementById("gt_barge");
         var gtCargo = document.getElementById("gt_cargo");
 
+        // Sembunyikan semua dulu setiap kali ada perubahan
         gtTugboat.style.display = "none";
         gtBarge.style.display = "none";
         gtCargo.style.display = "none";
@@ -139,10 +143,19 @@
         }
     }
 
+    // Fungsi untuk Logika Detail Kegiatan
     function jalankanLogikaKegiatan() {
         var pilihan = document.getElementById("id_rencana_kegiatan").value;
         var kolomDetail = document.getElementById("id_kolom_detail");
         kolomDetail.style.display = (pilihan === "Lain-lain") ? "block" : "none";
     }
+
+    // PENTING: Jalankan semua fungsi saat halaman pertama kali dimuat
+    // Agar kolom yang harus sembunyi benar-benar sembunyi
+    window.onload = function() {
+        jalankanLogikaKapal();
+        jalankanLogikaGT();
+        jalankanLogikaKegiatan();
+    };
 </script>
 @endsection

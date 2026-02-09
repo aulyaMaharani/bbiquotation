@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         /* =========================================
-            1. GLOBAL LAYOUT & NAVBAR (KODE ASLIMU)
+             1. GLOBAL LAYOUT & NAVBAR (KODE ASLIMU)
            ========================================= */
         body { 
             font-family: 'Sora', sans-serif; 
@@ -40,7 +40,7 @@
         }
 
         /* =========================================
-            2. LANDING PAGE & FITUR (KODE ASLIMU)
+             2. LANDING PAGE & FITUR (KODE ASLIMU)
            ========================================= */
         .hero-title { font-size: 52px; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
         .hero-title span { color: #8bb4f3; }
@@ -84,7 +84,7 @@
         .step-emoji { font-size: 26px; vertical-align: middle; margin-left: 5px; }
 
         /* =========================================
-            3. FORM & LOGIN (KODE ASLIMU)
+             3. FORM & LOGIN (KODE ASLIMU)
            ========================================= */
         .login-wrapper {
             display: flex; flex-direction: column; align-items: center;
@@ -137,58 +137,172 @@
         .btn-login-back { background: #ffffff; color: #4a5568; border: 1px solid #e2e8f0; }
 
         /* =========================================
-            4. DASHBOARD FIX (PERBAIKAN AGAR TIDAK JELEK)
+             4. DASHBOARD FIX (UPDATE NAVBAR SAJA BIAR GA TIMPA)
            ========================================= */
         body.bg-white { background-color: #f4f7f6 !important; color: #333 !important; }
         body.bg-white main { justify-content: flex-start !important; padding: 40px 60px !important; text-align: left !important; }
 
-        /* Navbar Navy Dashboard */
-        body.bg-white .navbar {
-            background: #0d2745 !important; padding: 12px 60px !important; backdrop-filter: none;
+        /* Navbar Navy Dashboard - MIRIP 100% GAMBAR TARGET */
+        body.bg-white .navbar { 
+            background: #0d2745 !important; 
+            padding: 12px 60px !important; 
+            height: 75px !important; 
+            backdrop-filter: none; 
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
         }
 
-        /* Container Content Dashboard */
-        .dash-content { width: 100%; max-width: 1300px; margin: 0 auto; text-align: left; }
+        /* Logo Navbar Dashboard */
+        body.bg-white .navbar img { 
+            height: 48px !important; 
+            width: 48px !important; 
+            background: white !important; 
+            padding: 5px !important; 
+            border-radius: 50% !important;
+        }
 
-        /* Kotak Filter Putih (BIAR TIDAK TEMBUS) */
+        /* Teks Dashboard Internal */
+        .nav-brand-text { 
+            color: white !important; 
+            font-weight: 800; 
+            font-size: 22px; 
+            margin-left: 15px; 
+        }
+
+        /* Tombol Keluar Dashboard (Merah Oranye) */
+        .btn-exit-bbi {
+            background-color: #f15a42 !important; 
+            color: white !important; 
+            padding: 10px 25px !important; 
+            border-radius: 10px !important;
+            border: none; cursor: pointer; font-weight: 700; font-size: 14px;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        /* --- DASHBOARD CONTENT (KODE ASLI KAMU YANG SUDAH BENAR) --- */
+        .dash-content { width: 100% !important; max-width: 1400px !important; margin: 0 auto !important; text-align: left !important; }
+
         body.bg-white .card-white {
             background: white !important;
-            padding: 35px !important;
+            padding: 30px 40px !important;
             border-radius: 15px !important;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
             border: 1px solid #e1e8ed !important;
             margin-bottom: 30px !important;
-            display: block !important;
         }
 
-        /* Form Filter Tata Letak Horizontal */
+        /* Tata letak form filter aslimu yang GA TIMPA */
         body.bg-white .card-white form {
             display: flex !important;
-            gap: 20px !important;
+            flex-direction: row !important;
             align-items: flex-end !important;
+            gap: 25px !important;
             width: 100% !important;
         }
 
-        /* Ukuran per kolom agar tidak tertimpa */
-        body.bg-white .card-white form div:nth-child(1) { flex: 2.5 !important; } /* Cari Perusahaan */
-        body.bg-white .card-white form div:nth-child(2) { flex: 1 !important; }   /* Bulan */
-        body.bg-white .card-white form div:nth-child(3) { flex: 1 !important; }   /* Tahun */
+        /* Memastikan input tidak berubah lebarnya agar GA TIMPA */
+        body.bg-white .card-white input, 
+        body.bg-white .card-white select {
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
 
-        /* Header Tabel Navy Profesional */
-        .bbi-table { width: 100% !important; border-collapse: collapse !important; margin-top: 10px !important; }
+        /* Header Tabel Navy HARUS LEBAR 100% */
+        .bbi-table { width: 100% !important; border-collapse: collapse !important; table-layout: auto !important; }
+        
         .bbi-table th { 
             background: #1a3a5f !important; color: white !important; 
-            padding: 18px 10px !important; font-size: 11px !important; 
-            text-transform: uppercase !important; font-weight: 700 !important;
+            padding: 18px 10px !important; font-size: 11px !important; text-transform: uppercase !important;
         }
-        .bbi-table td { padding: 15px 10px !important; border-bottom: 1px solid #eee !important; font-size: 13px !important; color: #333 !important; text-align: center !important; }
 
-        .nav-brand-text { color: white; font-weight: 800; font-size: 20px; margin-left: 15px; }
+        /* --- PERBAIKAN: AGAR BULAN & TAHUN GAK KEPOTONG --- */
+        body.bg-white .card-white form div:nth-child(2),
+        body.bg-white .card-white form div:nth-child(3) { 
+            min-width: 180px !important; /* Memberikan ruang kaku agar teks terbaca */
+            flex: 0 0 auto !important; 
+        }
+        
+        body.bg-white .card-white form div:nth-child(1) { 
+            flex: 1 1 auto !important; /* Kolom perusahaan menyesuaikan sisa ruang */
+        }
 
-        .btn-exit-bbi {
-            background-color: #f15a42; color: white; padding: 10px 25px; border-radius: 10px;
-            border: none; cursor: pointer; font-weight: 700; font-size: 14px;
-            display: flex; align-items: center; gap: 10px;
+        /* =========================================
+             5. ANIMASI HALUS (NEW & STABIL)
+           ========================================= */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-card, .card-white, .bbi-table, .hero-title, .features-grid, .steps-card {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .bbi-table tr:hover {
+            background-color: rgba(139, 180, 243, 0.08) !important;
+            transition: 0.3s;
+        }
+
+        .btn-submit, .btn-exit-bbi, .btn-nav, button[type="submit"], .btn-ajukan {
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .btn-submit:hover, .btn-exit-bbi:hover, .btn-nav:hover, .btn-ajukan:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+        }
+
+        /* =========================================
+             6. EFEK MELAYANG PADA KOTAK FITUR (HOVER LIFT)
+           ========================================= */
+        .feature-box, .steps-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        .feature-box:hover, .steps-card:hover {
+            transform: translateY(-10px) !important; /* Efek naik sedikit */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+        }
+
+        /* =========================================
+             7. LOGO WATERMARK BACKGROUND (LEBIH GEDE & SAMAR)
+           ========================================= */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 1200px; /* Ukuran diperbesar sesuai permintaanmu */
+            height: 800px;
+            background-image: url("{{ asset('images/logo-BBA-putih.png') }}");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: translate(-50%, -50%);
+            opacity: 0.03; /* Dibuat lebih samar lagi agar tidak ganggu teks */
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* =========================================
+             8. PERBAIKAN LOGO HALAMAN LOGIN (KECIL & PAS)
+           ========================================= */
+        .login-wrapper h1 { 
+            font-size: 50px !important; /* Ukuran teks logo jadi proporsional */
+            margin-bottom: 5px !important;
+        }
+
+        .login-wrapper h2 { 
+            font-size: 30px !important; 
+            margin-top: 0 !important;
+        }
+
+        /* Mengecilkan Gambar Logo di halaman login */
+        .login-wrapper img {
+            max-width: 320px !important; /* Ukuran manis tidak menutupi layar */
+            height: auto !important;
+            margin-bottom: 20px !important;
         }
 
         footer { 

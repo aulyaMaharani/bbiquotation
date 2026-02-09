@@ -3,7 +3,7 @@
 @section('title', 'Sistem Manajemen Quotation')
 
 @section('nav-action')
-    <a href="{{ route('login') }}" class="btn-nav">Login</a>
+    <a href="{{ route('login') }}" class="btn-nav">Login Internal</a>
 @endsection
 
 @section('content')
@@ -34,7 +34,7 @@
     {{-- Judul dan Subtitle --}}
     <h1 class="hero-title">SISTEM MANAJEMEN <span>QUOTATION</span></h1>
     <p class="hero-subtitle">
-        Selamat datang di portal quotation Bosowa Bandar Indonesia. Ajukan permintaan penawaran Anda dengan mudah dan cepat melalui sistem kami yang terintegrasi.
+        Selamat datang di portal Quotation Bosowa Bandar Indonesia. Ajukan permintaan penawaran Anda dengan mudah dan cepat melalui sistem kami yang terintegrasi.
     </p>
 
     {{-- Tombol Utama --}}

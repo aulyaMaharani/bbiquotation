@@ -5,8 +5,8 @@
 @section('content')
 <div class="login-wrapper">
     
-    <div class="login-logo-circle">
-        <img src="{{ asset('images/logo-bosowa.png') }}" alt="Logo bosowa">
+    <div class="login-logo">
+        <img src="{{ asset('images/logo-BBA-putih.png') }}" alt="Logo BBA putih">
     </div>
 
     {{-- TULISAN PORTAL (RATA TENGAH) --}}
