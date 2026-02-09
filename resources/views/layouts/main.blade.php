@@ -4,410 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') - Bosowa Bandar Indonesia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS GLOBAL & LAYOUT --- */
+        /* =========================================
+            1. GLOBAL LAYOUT & NAVBAR (KODE ASLIMU)
+           ========================================= */
         body { 
-            font-family: 'SORA', sans-serif; 
-            background-color: #0A2647; 
-            margin: 0; 
-            color: white;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: 'Sora', sans-serif; 
+            background-color: #05192d; 
+            margin: 0; color: white;
+            display: flex; flex-direction: column; min-height: 100vh;
         }
 
-        /* NAVBAR */
         .navbar {
             background: rgba(26, 58, 95, 0.4);
-            padding: 15px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid #0d2745;
+            padding: 15px 80px;
+            display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .navbar img { height: 45px; background: white; border-radius: 50%; padding: 2px; }
 
-        /* BUTTONS */
+        .navbar img { height: 42px; background: white; border-radius: 50%; padding: 4px; }
+
         .btn-nav {
             background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: 0.3s;
+            color: white; padding: 10px 24px; border-radius: 6px;
+            text-decoration: none; font-size: 14px; font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3); transition: 0.3s;
         }
-        .btn-nav:hover { background: rgba(255,255,255,0.3); }
+        .btn-nav:hover { background: rgba(255, 255, 255, 0.3); border-color: white; }
 
-        .btn-main, .btn-submit {
-            background: #8bb4f3;
-            color: #FFFF;
-            padding: 15px 45px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 20px;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            width: auto;
+        main {
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; 
+            text-align: center; padding: 60px 20px;
         }
-        .btn-main:hover, .btn-submit:hover { background-color: #7aa3e2; transform: translateY(-3px); }
 
-        /* CONTAINER */
-        .container { flex: 1; padding: 60px 20px; text-align: center; }
+        /* =========================================
+            2. LANDING PAGE & FITUR (KODE ASLIMU)
+           ========================================= */
+        .hero-title { font-size: 52px; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+        .hero-title span { color: #8bb4f3; }
+        .hero-subtitle { font-size: 16px; color: #cbd5e0; max-width: 850px; line-height: 1.8; margin: 0 auto 50px auto; }
 
-/* --- LANDING PAGE ELEMENTS --- */
-.hero-title {
-    font-size: 42px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.hero-title span {
-    color: #8bb4f3;
-    opacity: 0.9;
-}
-
-.hero-subtitle {
-    font-size: 16px;
-    color: #cbd5e0;
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-    line-height: 1.6;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1000px;
-    margin: 60px auto;
-}
-
-.feature-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 35px;
-    border-radius: 15px;
-    text-align: left;
-}
-
-.feature-box h3 {
-    margin: 15px 0 10px 0;
-    font-size: 18px;
-}
-
-.feature-box p {
-    font-size: 13px;
-    color: #cbd5e0;
-    margin: 0;
-    line-height: 1.5;
-}
-
-.steps-card {
-    background: rgba(255, 255, 255, 0.08);
-    max-width: 750px;
-    margin: 50px auto;
-    padding: 50px;
-    border-radius: 20px;
-    text-align: left;
-}
-
-.step-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-}
-
-.step-num {
-    background: #8bb4f3;
-    color: #05192d;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-right: 25px;
-    flex-shrink: 0;
-}
-
-
-        /* --- FORM CARD ELEMENTS --- */
-.form-card { 
-    background: white; 
-    color: #333; 
-    width: 95%; 
-    max-width: 880px; 
-    margin: 0 auto; 
-    padding: 60px; 
-    border-radius: 25px; 
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
-    position: relative;
-
-    /* FIX: agar judul & subtitle center */
-    text-align: center;
-}
-
-.form-card h2 { 
-    color: #1a3a5f; 
-    margin: 0; 
-    font-size: 32px; 
-    font-weight: 800; 
-}
-
-.form-card p.subtitle { 
-    color: #666; 
-    font-size: 15px; 
-    text-align: center; 
-    margin-bottom: 45px; 
-}
-
-/* FIX: isi form tetap rata kiri */
-.form-card form {
-    text-align: left;
-}
-
-.form-group { 
-    text-align: left; 
-    margin-bottom: 25px; 
-}
-
-label { 
-    display: block; 
-    font-weight: bold; 
-    font-size: 17px; 
-    margin-bottom: 10px; 
-    color: #333; 
-}
-
-input, select, textarea { 
-    width: 100%; 
-    padding: 16px; 
-    border: 1px solid #ccc; 
-    border-radius: 10px; 
-    box-sizing: border-box; 
-    background: #fdfdfd; 
-    font-size: 18px; 
-    font-family: 'Poppins', sans-serif; 
-}
-
-/* FIX: tombol Minta Quotation ke tengah */
-.form-card .btn-submit {
-    display: block;
-    margin: 40px auto 0 auto;
-}
-
-
-        /* ANIMASI LOADING */
-        #loading {
-            display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255,255,255,0.9); z-index: 100; justify-content: center; align-items: center; flex-direction: column; border-radius: 25px;
+        .btn-ajukan {
+            background: #8bb4f3; color: white !important;
+            padding: 18px 45px; border-radius: 12px;
+            font-weight: 800; font-size: 26px; text-decoration: none;
+            display: inline-block; box-shadow: 0 4px 20px rgba(139, 180, 243, 0.3);
+            margin-bottom: 100px; transition: 0.3s;
         }
-        .pulse-logo { width: 120px; animation: pulse-anim 1.5s infinite ease-in-out; }
-        @keyframes pulse-anim { 0%, 100% { transform: scale(0.9); } 50% { transform: scale(1.1); } }
 
-        /* FOOTER & MISC */
-        footer { padding: 30px; text-align: center; background: #03111f; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
-        .hidden { display: none; }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 25px; max-width: 1100px; width: 100%; margin-bottom: 80px;
+        }
 
+        .feature-box {
+            background: rgba(26, 58, 95, 0.4); padding: 40px 30px;
+            border-radius: 15px; text-align: left; border: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
+        .feature-box .icon { font-size: 55px; margin-bottom: 25px; display: block; line-height: 1; }
 
-/* --- LOGIN ---*/
-.container-login {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-}
+        .steps-card {
+            background: rgba(255, 255, 255, 0.07); max-width: 800px;
+            width: 100%; padding: 60px; border-radius: 20px; text-align: left;
+        }
 
-/* Kartu putih ini yang akan membatasi lebar kolom email */
-.login-card {
-    background: white;
-    color: #333;
-    width: 100%;
-    max-width: 450px; /* Membatasi agar tidak terlalu lebar */
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    text-align: left;
-    box-sizing: border-box;
-}
+        .step-item { display: flex; align-items: flex-start; margin-bottom: 35px; }
 
-.form-group-login {
-    margin-bottom: 25px;
-}
+        .step-num {
+            background: #8bb4f3; color: #05192d; 
+            width: 55px; height: 55px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; margin-right: 25px; flex-shrink: 0; 
+            font-size: 22px;
+        }
 
-.form-group-login label {
-    display: block;
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #333;
-}
+        .step-emoji { font-size: 26px; vertical-align: middle; margin-left: 5px; }
 
-/* Tombol Masuk Biru */
-.btn-login-submit {
-    background: #8bb4f3;
-    color: #0d2745;
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
+        /* =========================================
+            3. FORM & LOGIN (KODE ASLIMU)
+           ========================================= */
+        .login-wrapper {
+            display: flex; flex-direction: column; align-items: center;
+            width: 100%; max-width: 450px;
+        }
 
-/* Tombol Kembali Putih */
-.btn-login-back {
-    background: 8bb4f3;
-    color: #333;
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: 0.3s;
-}
+        .login-logo-circle {
+            width: 180px; height: 180px;
+            background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .login-logo-circle img { width: 140px; }
 
-/* --- CSS DASHBOARD INTERNAL--- */
-body { 
-    font-family: 'Sora', sans-serif; 
-    margin: 0; 
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
-}
+        .form-card, .login-card { 
+            background: white; color: #333; 
+            width: 100%; margin: 20px auto; 
+            padding: 50px; border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6); text-align: center;
+            box-sizing: border-box;
+        }
 
-/* Background dinamis: Default Biru Tua, kecuali diatur lain */
-body.bg-dark { background-color: #05192d; color: white; }
-body.bg-white { background-color: #ffffff; color: #333; }
+        .form-card { max-width: 750px; }
 
+        .form-group-login, .form-group { text-align: left; margin-bottom: 22px; width: 100%; }
+        .form-group-login label, .form-group label { 
+            display: block; font-weight: 700; margin-bottom: 10px; 
+            font-size: 15px; color: #333; 
+        }
+        
+        .form-group-login input, .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; padding: 14px 18px; border: 1px solid #d1d5db; 
+            border-radius: 12px; box-sizing: border-box; font-family: 'Poppins', sans-serif;
+            background-color: #ffffff; font-size: 14px; color: #333;
+        }
 
-/* NAVBAR DASHBOARD */
-.navbar-dash {
-    background: #05192d; 
-    background-color: #0A2647 !important;
-    padding: 15px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    border: none !important;
-    /* GANTI BARIS DI BAWAH INI MENJADI NONE */
-    box-shadow: none !important; 
-}
+        .btn-submit, .btn-login-submit, .btn-login-back {
+            width: 100%; padding: 16px; border-radius: 15px; 
+            font-weight: 800; font-size: 16px; border: none;
+            cursor: pointer; transition: 0.3s; display: block;
+            box-sizing: border-box; text-align: center; text-decoration: none;
+        }
 
-.navbar-dash img { height: 45px; background: white; border-radius: 50%; padding: 2px; }
+        .btn-submit, .btn-login-submit {
+            background: #8bb4f3; color: #1a3a5f !important;
+            box-shadow: 0 4px 15px rgba(139, 180, 243, 0.4);
+            margin-bottom: 15px;
+        }
 
-/* --- KONTAINER TERPISAH DENGAN DROP SHADOW --- */
-.dash-content { padding: 40px 60px; }
+        .btn-login-back { background: #ffffff; color: #4a5568; border: 1px solid #e2e8f0; }
 
-.card-white {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 30px; /* Jarak antar kontainer */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Drop Shadow agar terlihat kontainer */
-}
+        /* =========================================
+            4. DASHBOARD FIX (PERBAIKAN AGAR TIDAK JELEK)
+           ========================================= */
+        body.bg-white { background-color: #f4f7f6 !important; color: #333 !important; }
+        body.bg-white main { justify-content: flex-start !important; padding: 40px 60px !important; text-align: left !important; }
 
-/* TABEL HEADER BIRU TUA */
-.table-header { background-color: #1a3a5f; color: white; }
-.bbi-table { width: 100%; border-collapse: collapse; }
-.bbi-table th, .bbi-table td { padding: 15px; border: 1px solid #edf2f7; text-align: center; }
+        /* Navbar Navy Dashboard */
+        body.bg-white .navbar {
+            background: #0d2745 !important; padding: 12px 60px !important; backdrop-filter: none;
+        }
 
-/* TOMBOL KELUAR PROFESIONAL (Gbr 16) */
-.btn-exit-bbi {
-    background-color: #ff0000; /* Merah terang Gbr 16 */
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 10px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    font-family: 'Sora', sans-serif;
-    transition: 0.3s;
-}
+        /* Container Content Dashboard */
+        .dash-content { width: 100%; max-width: 1300px; margin: 0 auto; text-align: left; }
 
-.btn-exit-bbi:hover {
-    background-color: #e04a4a;
-    transform: scale(1.02);
-}
+        /* Kotak Filter Putih (BIAR TIDAK TEMBUS) */
+        body.bg-white .card-white {
+            background: white !important;
+            padding: 35px !important;
+            border-radius: 15px !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+            border: 1px solid #e1e8ed !important;
+            margin-bottom: 30px !important;
+            display: block !important;
+        }
 
-/* Tambahkan ini di bagian paling bawah style Anda */
+        /* Form Filter Tata Letak Horizontal */
+        body.bg-white .card-white form {
+            display: flex !important;
+            gap: 20px !important;
+            align-items: flex-end !important;
+            width: 100% !important;
+        }
 
-/* Memastikan teks di dalam kartu putih selalu hitam, bukan putih */
-.card-white {
-    color: #000000 !important;
-}
+        /* Ukuran per kolom agar tidak tertimpa */
+        body.bg-white .card-white form div:nth-child(1) { flex: 2.5 !important; } /* Cari Perusahaan */
+        body.bg-white .card-white form div:nth-child(2) { flex: 1 !important; }   /* Bulan */
+        body.bg-white .card-white form div:nth-child(3) { flex: 1 !important; }   /* Tahun */
 
-/* Memastikan teks di dalam tabel (selain header) berwarna hitam */
-.bbi-table td {
-    color: #000000 !important;
-    font-weight: 500;
-}
+        /* Header Tabel Navy Profesional */
+        .bbi-table { width: 100% !important; border-collapse: collapse !important; margin-top: 10px !important; }
+        .bbi-table th { 
+            background: #1a3a5f !important; color: white !important; 
+            padding: 18px 10px !important; font-size: 11px !important; 
+            text-transform: uppercase !important; font-weight: 700 !important;
+        }
+        .bbi-table td { padding: 15px 10px !important; border-bottom: 1px solid #eee !important; font-size: 13px !important; color: #333 !important; text-align: center !important; }
 
-/* Header tabel tetap biru tua dengan teks putih agar kontras */
-.table-header {
-    background-color: #1a3a5f !important;
-    color: #ffffff !important;
-}
+        .nav-brand-text { color: white; font-weight: 800; font-size: 20px; margin-left: 15px; }
 
-/* Jika ada teks "Menampilkan 1 data" atau label pencarian, buat jadi hitam juga */
-.card-white label, .card-white p, .card-white span {
-    color: #333333 !important;
-}
+        .btn-exit-bbi {
+            background-color: #f15a42; color: white; padding: 10px 25px; border-radius: 10px;
+            border: none; cursor: pointer; font-weight: 700; font-size: 14px;
+            display: flex; align-items: center; gap: 10px;
+        }
 
-    .form-group-dash input, .form-group-dash select {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        color: #000 !important; /* Memastikan teks input berwarna hitam */
-    }
-    .form-group-dash label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-        color: #333 !important;
-    }
-
+        footer { 
+            padding: 30px; text-align: center; background: #03111f; 
+            font-size: 15px; font-weight: 600; border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto; color: white;
+        }
     </style>
-
 </head>
-
-<body>
+<body class="@yield('body-class')">
     <nav class="navbar">
-        <img src="{{ asset('images/logo-bosowa.png') }}" alt="Logo Bosowa">
+        <div style="display: flex; align-items: center;">
+            <img src="{{ asset('images/logo-bosowa.png') }}" alt="Logo Bosowa">
+            @if(View::hasSection('title') && View::getSection('title') == 'Dashboard Internal')
+                <span class="nav-brand-text">Dashboard Internal</span>
+            @endif
+        </div>
         @yield('nav-action')
     </nav>
-
-    <main class="dash-content">
-        @yield('content')
-    </main>
-
-    <footer>
-        © 2026 Bosowa Bandar Indonesia. All rights reserved.
-    </footer>
+    <main>@yield('content')</main>
+    <footer>© 2026 Bosowa Bandar Indonesia. All rights reserved.</footer>
+    @stack('scripts')
 </body>
 </html>
