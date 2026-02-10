@@ -22,6 +22,16 @@
             display: flex; justify-content: space-between; align-items: center;
             backdrop-filter: blur(10px); border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
+<<<<<<< HEAD
+
+        /* PERBAIKAN DI SINI: Menghapus border-radius 50% dan padding */
+        .navbar img { 
+            height: 55px; /* Sedikit diperbesar agar lebih jelas */
+            width: auto;  /* Menjaga proporsi agar tidak gepeng */
+            display: block;
+        }
+=======
+>>>>>>> e1b184e6a1363b9912f5b9a0649d5a530b2d68f1
 
         .navbar img { height: 55px; width: auto display: block; }
 
@@ -378,12 +388,16 @@
 </head>
 <body class="@yield('body-class')">
     <nav class="navbar">
+<<<<<<< HEAD
+        <img src="{{ asset('images/logobosowa.png') }}" alt="Logo Bosowa">
+=======
         <div style="display: flex; align-items: center;">
             <img src="@yield('logo', asset('images/logo-bosowa.png'))" alt="Logo Bosowa">
             @if(View::hasSection('title') && View::getSection('title') == 'Dashboard Internal')
                 <span class="nav-brand-text">Dashboard Internal</span>
             @endif
         </div>
+>>>>>>> e1b184e6a1363b9912f5b9a0649d5a530b2d68f1
         @yield('nav-action')
     </nav>
     <main>@yield('content')</main>
