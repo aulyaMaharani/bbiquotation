@@ -9,14 +9,15 @@
 </script>
 @endpush
 
+{{-- TOMBOL KELUAR DI NAVBAR --}}
 @section('nav-action')
-    <form action="{{ route('logout') }}" method="POST">
+    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
         @csrf
         <button type="submit" class="btn-exit-bbi">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                 <polyline points="11 17 6 12 11 7"></polyline>
-                <line x1="6" y1="12" x2="21" x2="12"></line>
+                <line x1="6" y1="12" x2="21" y2="12"></line>
             </svg>
             Keluar
         </button>
@@ -100,7 +101,6 @@
                         <td style="color: #000;">{{ $item->pelabuhan_tujuan }}</td>
                         <td style="color: #000;">{{ $item->estimasi_tiba }}</td>
                         
-                        {{-- Logika untuk menampilkan detail jika "Lain-lain" --}}
                         <td style="color: #000;">
                             @if($item->rencana_kegiatan == 'Lain-lain')
                                 {{ $item->kegiatan_detail }}
