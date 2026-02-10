@@ -27,7 +27,13 @@
             backdrop-filter: blur(10px);
             border-bottom: 2px solid #0d2745;
         }
-        .navbar img { height: 45px; background: white; border-radius: 50%; padding: 2px; }
+
+        /* PERBAIKAN DI SINI: Menghapus border-radius 50% dan padding */
+        .navbar img { 
+            height: 55px; /* Sedikit diperbesar agar lebih jelas */
+            width: auto;  /* Menjaga proporsi agar tidak gepeng */
+            display: block;
+        }
 
         /* BUTTONS */
         .btn-nav {
@@ -398,7 +404,7 @@ body.bg-white { background-color: #ffffff; color: #333; }
 
 <body>
     <nav class="navbar">
-        <img src="{{ asset('images/logo-bosowa.png') }}" alt="Logo Bosowa">
+        <img src="{{ asset('images/logobosowa.png') }}" alt="Logo Bosowa">
         @yield('nav-action')
     </nav>
 
