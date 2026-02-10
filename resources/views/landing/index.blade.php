@@ -2,8 +2,10 @@
 
 @section('title', 'Sistem Manajemen Quotation')
 
+@section('logo', asset('images/logo-BBA-putih.png'))
+
 @section('nav-action')
-    <a href="{{ route('login') }}" class="btn-nav">Login Internal</a>
+    <a href="{{ route('login') }}" class="btn-nav">Login Admin</a>
 @endsection
 
 @section('content')

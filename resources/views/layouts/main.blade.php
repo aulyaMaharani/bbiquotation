@@ -20,10 +20,10 @@
             background: rgba(26, 58, 95, 0.4);
             padding: 15px 80px;
             display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px); border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
 
-        .navbar img { height: 42px; background: white; border-radius: 50%; padding: 4px; }
+        .navbar img { height: 55px; width: auto display: block; }
 
         .btn-nav {
             background: rgba(255, 255, 255, 0.2);
@@ -228,7 +228,7 @@
         }
 
         /* =========================================
-             5. ANIMASI HALUS (NEW & STABIL)
+             5. ANIMASI HALUS (KODE ASLIMU)
            ========================================= */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -254,7 +254,7 @@
         }
 
         /* =========================================
-             6. EFEK MELAYANG PADA KOTAK FITUR (HOVER LIFT)
+             6. EFEK MELAYANG PADA KOTAK FITUR (KODE ASLIMU)
            ========================================= */
         .feature-box, .steps-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease !important;
@@ -266,7 +266,7 @@
         }
 
         /* =========================================
-             7. LOGO WATERMARK BACKGROUND (LEBIH GEDE & SAMAR)
+             7. LOGO WATERMARK BACKGROUND (KODE ASLIMU)
            ========================================= */
         body::before {
             content: "";
@@ -280,13 +280,13 @@
             background-repeat: no-repeat;
             background-position: center;
             transform: translate(-50%, -50%);
-            opacity: 0.03; /* Dibuat lebih samar lagi agar tidak ganggu teks */
+            opacity: 0.04; /* Dibuat lebih samar lagi agar tidak ganggu teks */
             z-index: -1;
             pointer-events: none;
         }
 
         /* =========================================
-             8. PERBAIKAN LOGO HALAMAN LOGIN (KECIL & PAS)
+             8. PERBAIKAN LOGO HALAMAN LOGIN (KODE ASLIMU)
            ========================================= */
         .login-wrapper h1 { 
             font-size: 50px !important; /* Ukuran teks logo jadi proporsional */
@@ -305,17 +305,81 @@
             margin-bottom: 20px !important;
         }
 
+        /* =========================================
+             9. ANIMASI PREMIUM (NEW)
+           ========================================= */
+        
+        /* 1. Efek Berdenyut Halus pada Tombol Utama */
+        .btn-ajukan, .btn-submit {
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(139, 180, 243, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(139, 180, 243, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(139, 180, 243, 0); }
+        }
+
+        /* 2. Delay Animasi biar gak barengan (Smooth Stagger) */
+        .bbi-table {
+            animation-delay: 0.3s; /* Tabel muncul sedikit lebih lambat dari judul */
+        }
+
+        /* 3. Efek Fokus pada Kolom Input saat diklik */
+        input:focus, select:focus {
+            outline: none;
+            border-color: #8bb4f3 !important;
+            box-shadow: 0 0 8px rgba(139, 180, 243, 0.5) !important;
+            transition: 0.3s;
+        }
+
         footer { 
             padding: 30px; text-align: center; background: #03111f; 
             font-size: 15px; font-weight: 600; border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: auto; color: white;
+        }
+
+        /* =========================================
+             10. INTERAKSI TINGKAT LANJUT (NEW)
+           ========================================= */
+        
+        /* Efek Tombol Tertekan (Sangat Realistis) */
+        .btn-submit:active, .btn-nav:active, .btn-exit-bbi:active, .btn-ajukan:active {
+            transform: scale(0.95) !important;
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.2) !important;
+            transition: 0.1s !important;
+        }
+
+        /* Transisi Halus untuk Semua Elemen Interaktif */
+        a, button, input, select, .feature-box {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+
+        /* Mempercantik Scrollbar agar Sesuai Tema Navy */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05192d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a3a5f;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8bb4f3;
+        }
+
+        /* Highlight Baris Tabel yang sedang Aktif/Dilihat */
+        .bbi-table tr:active {
+            background-color: rgba(139, 180, 243, 0.15) !important;
         }
     </style>
 </head>
 <body class="@yield('body-class')">
     <nav class="navbar">
         <div style="display: flex; align-items: center;">
-            <img src="{{ asset('images/logo-bosowa.png') }}" alt="Logo Bosowa">
+            <img src="@yield('logo', asset('images/logo-bosowa.png'))" alt="Logo Bosowa">
             @if(View::hasSection('title') && View::getSection('title') == 'Dashboard Internal')
                 <span class="nav-brand-text">Dashboard Internal</span>
             @endif
