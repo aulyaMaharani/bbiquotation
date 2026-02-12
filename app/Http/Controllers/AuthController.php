@@ -19,8 +19,8 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        $validEmail = "admin@bosowa.com";
-        $validPassword = "passwordadmin123";
+        $validEmail = "bosowabandarindo@gmail.com";
+        $validPassword = "adminbbi2026";
 
         if ($request->email === $validEmail && $request->password === $validPassword) {
             
