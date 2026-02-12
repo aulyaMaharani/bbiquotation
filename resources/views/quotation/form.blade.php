@@ -33,6 +33,7 @@
         <div class="form-group">
             <label>Jenis Kapal</label>
             <select name="jenis_kapal" id="id_jenis_kapal" required onchange="jalankanLogikaKapal()">
+                <option value="Jenis Kapal">Pilih Jenis Kapal</option>
                 <option value="General Cargo">1. General cargo</option>
                 <option value="Tugboat/Barge">2. Tugboat/barge</option>
                 <option value="Mother Tanker">3. Mother tanker (MT)</option>
@@ -54,6 +55,7 @@
         <div class="form-group">
             <label>GT (Gross Tonnage)</label>
             <select name="gt" id="id_gt" required onchange="jalankanLogikaGT()">
+                <option value="GT">Pilih GT</option>
                 <option value="Tugboat">1. Tugboat & Barge</option>
                 <option value="Cargo">2. Cargo</option>
             </select>

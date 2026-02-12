@@ -20,20 +20,10 @@
             background: rgba(26, 58, 95, 0.4);
             padding: 15px 80px;
             display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(10px); border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-<<<<<<< HEAD
 
-        /* PERBAIKAN DI SINI: Menghapus border-radius 50% dan padding */
-        .navbar img { 
-            height: 55px; /* Sedikit diperbesar agar lebih jelas */
-            width: auto;  /* Menjaga proporsi agar tidak gepeng */
-            display: block;
-        }
-=======
->>>>>>> e1b184e6a1363b9912f5b9a0649d5a530b2d68f1
-
-        .navbar img { height: 55px; width: auto display: block; }
+        .navbar img { height: 42px; width: auto; display: block; }
 
         .btn-nav {
             background: rgba(255, 255, 255, 0.2);
@@ -147,12 +137,11 @@
         .btn-login-back { background: #ffffff; color: #4a5568; border: 1px solid #e2e8f0; }
 
         /* =========================================
-             4. DASHBOARD FIX (UPDATE NAVBAR SAJA BIAR GA TIMPA)
+             4. DASHBOARD FIX (KODE ASLIMU)
            ========================================= */
         body.bg-white { background-color: #f4f7f6 !important; color: #333 !important; }
         body.bg-white main { justify-content: flex-start !important; padding: 40px 60px !important; text-align: left !important; }
 
-        /* Navbar Navy Dashboard - MIRIP 100% GAMBAR TARGET */
         body.bg-white .navbar { 
             background: #0d2745 !important; 
             padding: 12px 60px !important; 
@@ -163,16 +152,8 @@
             justify-content: space-between !important;
         }
 
-        /* Logo Navbar Dashboard */
-        body.bg-white .navbar img { 
-            height: 48px !important; 
-            width: 48px !important; 
-            background: white !important; 
-            padding: 5px !important; 
-            border-radius: 50% !important;
-        }
+        body.bg-white .navbar img { height: 42px; width: auto; display: block; }
 
-        /* Teks Dashboard Internal */
         .nav-brand-text { 
             color: white !important; 
             font-weight: 800; 
@@ -180,7 +161,6 @@
             margin-left: 15px; 
         }
 
-        /* Tombol Keluar Dashboard (Merah Oranye) */
         .btn-exit-bbi {
             background-color: #f15a42 !important; 
             color: white !important; 
@@ -190,7 +170,6 @@
             display: flex; align-items: center; gap: 10px;
         }
 
-        /* --- DASHBOARD CONTENT (KODE ASLI KAMU YANG SUDAH BENAR) --- */
         .dash-content { width: 100% !important; max-width: 1400px !important; margin: 0 auto !important; text-align: left !important; }
 
         body.bg-white .card-white {
@@ -202,39 +181,41 @@
             margin-bottom: 30px !important;
         }
 
-        /* Tata letak form filter aslimu yang GA TIMPA */
         body.bg-white .card-white form {
             display: flex !important;
             flex-direction: row !important;
             align-items: flex-end !important;
             gap: 25px !important;
             width: 100% !important;
+            flex-wrap: wrap !important;
         }
 
-        /* Memastikan input tidak berubah lebarnya agar GA TIMPA */
         body.bg-white .card-white input, 
         body.bg-white .card-white select {
             width: 100% !important;
             box-sizing: border-box !important;
         }
 
-        /* Header Tabel Navy HARUS LEBAR 100% */
-        .bbi-table { width: 100% !important; border-collapse: collapse !important; table-layout: auto !important; }
+        .bbi-table { 
+            width: 100% !important; 
+            border-collapse: collapse !important; 
+            table-layout: auto !important;
+            font-size: 13px !important; 
+        }
         
         .bbi-table th { 
             background: #1a3a5f !important; color: white !important; 
             padding: 18px 10px !important; font-size: 11px !important; text-transform: uppercase !important;
         }
 
-        /* --- PERBAIKAN: AGAR BULAN & TAHUN GAK KEPOTONG --- */
         body.bg-white .card-white form div:nth-child(2),
         body.bg-white .card-white form div:nth-child(3) { 
-            min-width: 180px !important; /* Memberikan ruang kaku agar teks terbaca */
-            flex: 0 0 auto !important; 
+            min-width: 180px !important; 
+            flex: 1 0 auto !important; 
         }
         
         body.bg-white .card-white form div:nth-child(1) { 
-            flex: 1 1 auto !important; /* Kolom perusahaan menyesuaikan sisa ruang */
+            flex: 2 1 auto !important; 
         }
 
         /* =========================================
@@ -271,26 +252,26 @@
         }
 
         .feature-box:hover, .steps-card:hover {
-            transform: translateY(-10px) !important; /* Efek naik sedikit */
+            transform: translateY(-10px) !important;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
         }
 
         /* =========================================
-             7. LOGO WATERMARK BACKGROUND (KODE ASLIMU)
+             7. LOGO WATERMARK BACKGROUND (FIX WATERMARK LOGIN)
            ========================================= */
-        body::before {
+        body:not(.login-body)::before {
             content: "";
             position: fixed;
             top: 50%;
             left: 50%;
-            width: 1200px; /* Ukuran diperbesar sesuai permintaanmu */
+            width: 1200px;
             height: 800px;
             background-image: url("{{ asset('images/logo-BBA-putih.png') }}");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             transform: translate(-50%, -50%);
-            opacity: 0.04; /* Dibuat lebih samar lagi agar tidak ganggu teks */
+            opacity: 0.03;
             z-index: -1;
             pointer-events: none;
         }
@@ -299,7 +280,7 @@
              8. PERBAIKAN LOGO HALAMAN LOGIN (KODE ASLIMU)
            ========================================= */
         .login-wrapper h1 { 
-            font-size: 50px !important; /* Ukuran teks logo jadi proporsional */
+            font-size: 50px !important;
             margin-bottom: 5px !important;
         }
 
@@ -308,18 +289,15 @@
             margin-top: 0 !important;
         }
 
-        /* Mengecilkan Gambar Logo di halaman login */
         .login-wrapper img {
-            max-width: 320px !important; /* Ukuran manis tidak menutupi layar */
+            max-width: 320px !important;
             height: auto !important;
             margin-bottom: 20px !important;
         }
 
         /* =========================================
-             9. ANIMASI PREMIUM (NEW)
+             9. ANIMASI PREMIUM (KODE ASLIMU)
            ========================================= */
-        
-        /* 1. Efek Berdenyut Halus pada Tombol Utama */
         .btn-ajukan, .btn-submit {
             animation: pulse-glow 2s infinite;
         }
@@ -330,12 +308,6 @@
             100% { box-shadow: 0 0 0 0 rgba(139, 180, 243, 0); }
         }
 
-        /* 2. Delay Animasi biar gak barengan (Smooth Stagger) */
-        .bbi-table {
-            animation-delay: 0.3s; /* Tabel muncul sedikit lebih lambat dari judul */
-        }
-
-        /* 3. Efek Fokus pada Kolom Input saat diklik */
         input:focus, select:focus {
             outline: none;
             border-color: #8bb4f3 !important;
@@ -343,64 +315,76 @@
             transition: 0.3s;
         }
 
-        footer { 
-            padding: 30px; text-align: center; background: #03111f; 
-            font-size: 15px; font-weight: 600; border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: auto; color: white;
-        }
-
         /* =========================================
-             10. INTERAKSI TINGKAT LANJUT (NEW)
+             10. INTERAKSI TINGKAT LANJUT (KODE ASLIMU)
            ========================================= */
-        
-        /* Efek Tombol Tertekan (Sangat Realistis) */
         .btn-submit:active, .btn-nav:active, .btn-exit-bbi:active, .btn-ajukan:active {
             transform: scale(0.95) !important;
             box-shadow: inset 0 3px 5px rgba(0,0,0,0.2) !important;
             transition: 0.1s !important;
         }
 
-        /* Transisi Halus untuk Semua Elemen Interaktif */
-        a, button, input, select, .feature-box {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #05192d; }
+        ::-webkit-scrollbar-thumb { background: #1a3a5f; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8bb4f3; }
+
+        /* =========================================
+             11. MOBILE FRIENDLY FIX (ADDITION UNTUK TABEL)
+           ========================================= */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 1rem;
         }
 
-        /* Mempercantik Scrollbar agar Sesuai Tema Navy */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #05192d;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1a3a5f;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #8bb4f3;
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px !important; flex-direction: column !important; height: auto !important; gap: 10px; }
+            .hero-title { font-size: 32px !important; }
+            .features-grid { grid-template-columns: 1fr !important; }
+            .steps-card { padding: 30px 20px !important; }
+            .step-item { flex-direction: column; align-items: center; text-align: center; }
+            body.bg-white .card-white form { flex-direction: column !important; align-items: stretch !important; }
+            body.bg-white main { padding: 20px !important; }
+            .nav-brand-text { font-size: 16px !important; margin-left: 0; }
+            /* Memaksa tabel memiliki lebar minimum di layar kecil agar tidak penyet */
+            .bbi-table { min-width: 800px !important; }
         }
 
-        /* Highlight Baris Tabel yang sedang Aktif/Dilihat */
-        .bbi-table tr:active {
-            background-color: rgba(139, 180, 243, 0.15) !important;
+        footer { 
+            padding: 30px; text-align: center; background: #03111f; 
+            font-size: 15px; font-weight: 600; border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto; color: white;
         }
     </style>
 </head>
-<body class="@yield('body-class')">
+<body class="@yield('body-class') {{ Request::is('login') ? 'login-body' : '' }}">
     <nav class="navbar">
-<<<<<<< HEAD
-        <img src="{{ asset('images/logobosowa.png') }}" alt="Logo Bosowa">
-=======
-        <div style="display: flex; align-items: center;">
-            <img src="@yield('logo', asset('images/logo-bosowa.png'))" alt="Logo Bosowa">
+        <div style="display: flex; align-items: center; flex-wrap: wrap; justify-content: center;">
+            @if(Request::is('/') || Request::is('home'))
+                <img src="{{ asset('images/logo-BBA-putih.png') }}" alt="Logo Landing Page">
+            @else
+                <img src="{{ asset('images/logobosowa.png') }}" alt="Logo Bosowa">
+            @endif
+
             @if(View::hasSection('title') && View::getSection('title') == 'Dashboard Internal')
                 <span class="nav-brand-text">Dashboard Internal</span>
             @endif
         </div>
->>>>>>> e1b184e6a1363b9912f5b9a0649d5a530b2d68f1
         @yield('nav-action')
     </nav>
-    <main>@yield('content')</main>
+    <main>
+        @if(View::hasSection('title') && View::getSection('title') == 'Dashboard Internal')
+            <div class="dash-content" style="width: 100%;">
+                <div class="table-responsive">
+                    @yield('content')
+                </div>
+            </div>
+        @else
+            @yield('content')
+        @endif
+    </main>
     <footer>© 2026 Bosowa Bandar Indonesia. All rights reserved.</footer>
     @stack('scripts')
 </body>

@@ -4,16 +4,9 @@
 
 @section('content')
 <div class="login-wrapper">
-    
-<<<<<<< HEAD
-    <div style="text-align: center; margin-bottom: 30px;">
-        {{-- img src="{{ asset('images/logobosowa.png') }}" style="width: 250px; margin-bottom: 15px;" --}}
-        <h2 style="font-size: 28px; font-weight: 800; color: white; margin-bottom: 5px;">PORTAL INTERNAL</h2>
-        <p style="color: #cbd5e0; margin-top: 0;">Masuk Untuk Mengakses Dashboard</p>
-=======
+
     <div class="login-logo">
         <img src="{{ asset('images/logo-BBA-putih.png') }}" alt="Logo BBA putih">
->>>>>>> e1b184e6a1363b9912f5b9a0649d5a530b2d68f1
     </div>
 
     {{-- TULISAN PORTAL (RATA TENGAH) --}}
@@ -52,11 +45,8 @@
 
             <button type="submit" class="btn-login-submit">Masuk</button>
             
-<<<<<<< HEAD
             <a href="{{ url('/') }}" class="btn-login-back" style="display: block; text-align: center; margin-top: 15px; color: #00060d; text-decoration: none; font-size: 14px;">Kembali Ke Beranda</a>
-=======
-            <a href="{{ url('/') }}" class="btn-login-back">Kembali Ke Beranda</a>
->>>>>>> e1b184e6a1363b9912f5b9a0649d5a530b2d68f1
+
         </form>
     </div>
 </div>
