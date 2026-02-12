@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    {{-- Alert Sukses (Tetap pakai style inline sedikit untuk posisi popup) --}}
+    {{-- Alert Sukses (Kode Asli 100% Tetap Ada) --}}
     @if(session('success'))
     <div id="success-alert" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; width: 90%; max-width: 500px;">
         <div style="background-color: #28a745; color: white; padding: 15px 20px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2);">
@@ -33,7 +33,7 @@
     </script>
     @endif
 
-    {{-- Judul dan Subtitle --}}
+    {{-- Judul dan Subtitle (Gunakan Class Agar Responsif Sesuai CSS Baru) --}}
     <h1 class="hero-title">SISTEM MANAJEMEN <span>QUOTATION</span></h1>
     <p class="hero-subtitle">
         Selamat datang di portal Quotation Bosowa Bandar Indonesia. Ajukan permintaan penawaran Anda dengan mudah dan cepat melalui sistem kami yang terintegrasi.
@@ -44,7 +44,7 @@
         <a href="/quotation" class="btn-ajukan">Ajukan Quotation</a>
     </div>
 
-    {{-- Grid Fitur (3 Kolom Sejajar) --}}
+    {{-- Grid Fitur (Tetap 3 Kolom di Laptop, Otomatis 1 Kolom di HP Berkat CSS Bagian 11) --}}
     <div class="features-grid">
         <div class="feature-box">
             <span class="icon">📄</span>
@@ -65,9 +65,9 @@
         </div>
     </div>
 
-    {{-- Kartu Langkah-langkah --}}
+    {{-- Kartu Langkah-langkah (Sudah Responsif Berkat Kontainer Steps-Card Baru) --}}
     <div class="steps-card">
-        <h2>Cara Mengajukan Quotation</h2>
+        <h2 style="text-align: center; margin-bottom: 40px; color: #8bb4f3; font-weight: 800;">Cara Mengajukan Quotation</h2>
         
         <div class="step-item">
             <span class="step-num">1</span>

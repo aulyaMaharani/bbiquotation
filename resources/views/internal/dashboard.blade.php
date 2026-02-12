@@ -19,7 +19,8 @@
                 <polyline points="11 17 6 12 11 7"></polyline>
                 <line x1="6" y1="12" x2="21" y2="12"></line>
             </svg>
-            Keluar
+            {{-- TAMBAHAN: Class span agar teks 'Keluar' rapi di HP --}}
+            <span class="btn-text-nav">Keluar</span>
         </button>
     </form>
 @endsection
@@ -29,17 +30,19 @@
     
     <h1 style="text-align: left; font-weight: 800; color: #0d2745; margin-bottom: 25px; font-size: 28px;">Riwayat Permohonan Quotation</h1>
 
-    {{-- Form Filter --}}
+    {{-- Form Filter - TAMBAHAN: flex-wrap agar tidak kelebihan ke samping di HP --}}
     <div class="card-white">
         <form action="{{ route('dashboard') }}" method="GET">
-            <div style="display: flex; gap: 20px; align-items: flex-end;">
+            {{-- TAMBAHAN: Style flex-wrap agar elemen otomatis turun ke bawah saat layar sempit --}}
+            <div style="display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap;">
                 
-                <div style="flex: 2;">
+                {{-- TAMBAHAN: min-width agar input punya lebar minimum di HP --}}
+                <div style="flex: 2; min-width: 250px;">
                     <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Cari Nama Perusahaan</label>
                     <input type="text" name="search" value="{{ request('search') }}" placeholder="Ketik Nama Perusahaan" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif; color: #000;">
                 </div>
 
-                <div style="flex: 1;">
+                <div style="flex: 1; min-width: 150px;">
                     <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Bulan (ETA)</label>
                     <select name="month" onchange="this.form.submit()" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif; color: #000;">
                         <option value="">Semua Bulan</option>
@@ -51,7 +54,7 @@
                     </select>
                 </div>
 
-                <div style="flex: 1;">
+                <div style="flex: 1; min-width: 150px;">
                     <label style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: left;">Tahun (ETA)</label>
                     <select name="year" onchange="this.form.submit()" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Sora', sans-serif; color: #000;">
                         <option value="">Semua Tahun</option>
@@ -62,8 +65,11 @@
                     </select>
                 </div>
 
-                <button type="submit" style="padding: 12px 25px; background: #1a3a5f; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: 'Sora', sans-serif;">Cari</button>
-                <a href="{{ route('dashboard') }}" style="padding: 12px 25px; background: #eee; color: #333; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: 'Sora', sans-serif; font-size: 14px; text-align: center;">Reset Filter</a>
+                {{-- TAMBAHAN: Wadah tombol agar selalu berdekatan --}}
+                <div style="display: flex; gap: 10px; flex: 1; min-width: 200px;">
+                    <button type="submit" style="flex: 1; padding: 12px; background: #1a3a5f; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: 'Sora', sans-serif;">Cari</button>
+                    <a href="{{ route('dashboard') }}" style="flex: 1; padding: 12px; background: #eee; color: #333; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: 'Sora', sans-serif; font-size: 14px; text-align: center; display: flex; align-items: center; justify-content: center;">Reset</a>
+                </div>
             </div>
         </form>
         <p style="font-size: 12px; margin-top: 15px; color: #888; text-align: left;">Menampilkan {{ count($quotations) }} data</p>
@@ -71,7 +77,8 @@
 
     {{-- Tabel Riwayat --}}
     <div class="card-white">
-        <div style="overflow-x: auto;">
+        {{-- TAMBAHAN: Kontainer overflow agar tabel bisa di-swipe di HP --}}
+        <div style="overflow-x: auto; width: 100%; -webkit-overflow-scrolling: touch;">
             <table class="bbi-table">
                 <thead class="table-header">
                     <tr>

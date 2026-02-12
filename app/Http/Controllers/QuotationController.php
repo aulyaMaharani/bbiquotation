@@ -62,7 +62,7 @@ class QuotationController extends Controller
         // 3. Proses Pengiriman Email ke Admin
         try {
             // Ganti email di bawah dengan email admin BBI yang dituju
-            Mail::to('auliamhrni07@gmail.com')->send(new NewQuotationMail($quotation));
+            Mail::to('bosowabandarindo@gmail.com')->send(new NewQuotationMail($quotation));
         } catch (\Exception $e) {
             // Jika email gagal terkirim (misal karena koneksi internet), data tetap aman di database
             // Log bisa dilihat di storage/logs/laravel.log

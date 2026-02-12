@@ -257,7 +257,7 @@
         }
 
         /* =========================================
-             7. LOGO WATERMARK BACKGROUND (FIX WATERMARK LOGIN)
+             7. LOGO WATERMARK (FIX WATERMARK LOGIN)
            ========================================= */
         body:not(.login-body)::before {
             content: "";
@@ -277,7 +277,7 @@
         }
 
         /* =========================================
-             8. PERBAIKAN LOGO HALAMAN LOGIN (KODE ASLIMU)
+             8. PERBAIKAN LOGO LOGIN (KODE ASLIMU)
            ========================================= */
         .login-wrapper h1 { 
             font-size: 50px !important;
@@ -296,7 +296,7 @@
         }
 
         /* =========================================
-             9. ANIMASI PREMIUM (KODE ASLIMU)
+             9. ANIMASI PREMIUM (NEW)
            ========================================= */
         .btn-ajukan, .btn-submit {
             animation: pulse-glow 2s infinite;
@@ -316,7 +316,7 @@
         }
 
         /* =========================================
-             10. INTERAKSI TINGKAT LANJUT (KODE ASLIMU)
+             10. INTERAKSI TINGKAT LANJUT (NEW)
            ========================================= */
         .btn-submit:active, .btn-nav:active, .btn-exit-bbi:active, .btn-ajukan:active {
             transform: scale(0.95) !important;
@@ -324,32 +324,67 @@
             transition: 0.1s !important;
         }
 
+        a, button, input, select, .feature-box {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #05192d; }
         ::-webkit-scrollbar-thumb { background: #1a3a5f; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #8bb4f3; }
 
+        .bbi-table tr:active {
+            background-color: rgba(139, 180, 243, 0.15) !important;
+        }
+
         /* =========================================
-             11. MOBILE FRIENDLY FIX (ADDITION UNTUK TABEL)
+             11. MOBILE FRIENDLY FIX (INI YANG DITAMBAHKAN)
            ========================================= */
         .table-responsive {
-            width: 100%;
-            overflow-x: auto;
+            width: 100% !important;
+            overflow-x: auto !important;
             -webkit-overflow-scrolling: touch;
             margin-bottom: 1rem;
         }
 
         @media (max-width: 768px) {
-            .navbar { padding: 15px 20px !important; flex-direction: column !important; height: auto !important; gap: 10px; }
-            .hero-title { font-size: 32px !important; }
-            .features-grid { grid-template-columns: 1fr !important; }
-            .steps-card { padding: 30px 20px !important; }
-            .step-item { flex-direction: column; align-items: center; text-align: center; }
-            body.bg-white .card-white form { flex-direction: column !important; align-items: stretch !important; }
-            body.bg-white main { padding: 20px !important; }
-            .nav-brand-text { font-size: 16px !important; margin-left: 0; }
-            /* Memaksa tabel memiliki lebar minimum di layar kecil agar tidak penyet */
-            .bbi-table { min-width: 800px !important; }
+            /* Navbar Responsif (image_f06dc0, image_f07120, image_f071c0): Logo Kiri, Tombol Kanan */
+            .navbar, body.bg-white .navbar { 
+                padding: 10px 15px !important; 
+                flex-direction: row !important; 
+                justify-content: space-between !important; 
+                height: auto !important;
+                min-height: 65px !important;
+            }
+
+            .navbar img, body.bg-white .navbar img { 
+                height: 30px !important; 
+                width: auto !important;
+                margin-bottom: 0 !important;
+            }
+
+            .btn-nav, .btn-exit-bbi { 
+                padding: 8px 14px !important; 
+                font-size: 11px !important; 
+                margin-top: 0 !important; 
+                white-space: nowrap;
+            }
+
+            /* Fix Judul & Filter (image_ef8c24, image_f000de) */
+            .hero-title { font-size: 26px !important; }
+            .features-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+            
+            body.bg-white .card-white form { 
+                flex-direction: column !important; 
+                align-items: stretch !important; 
+                gap: 15px !important; 
+            }
+            body.bg-white .card-white form div { width: 100% !important; min-width: 100% !important; }
+            
+            .nav-brand-text { font-size: 12px !important; margin-left: 5px !important; }
+            body.bg-white main { padding: 20px 15px !important; }
+            .login-card, .form-card { width: 92% !important; padding: 30px 20px !important; }
+            .bbi-table { min-width: 900px !important; }
         }
 
         footer { 
@@ -361,7 +396,7 @@
 </head>
 <body class="@yield('body-class') {{ Request::is('login') ? 'login-body' : '' }}">
     <nav class="navbar">
-        <div style="display: flex; align-items: center; flex-wrap: wrap; justify-content: center;">
+        <div style="display: flex; align-items: center;">
             @if(Request::is('/') || Request::is('home'))
                 <img src="{{ asset('images/logo-BBA-putih.png') }}" alt="Logo Landing Page">
             @else
@@ -375,6 +410,7 @@
         @yield('nav-action')
     </nav>
     <main>
+        {{-- WRAPPER TABEL KHUSUS DASHBOARD --}}
         @if(View::hasSection('title') && View::getSection('title') == 'Dashboard Internal')
             <div class="dash-content" style="width: 100%;">
                 <div class="table-responsive">
