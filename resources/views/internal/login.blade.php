@@ -6,7 +6,7 @@
 <div class="login-wrapper">
 
     <div class="login-logo">
-        <img src="{{ asset('images/logo-BBA-putih.png') }}" alt="Logo BBA putih">
+        <img src="{{ asset('images/logobosowa.png') }}" alt="Logo BBA putih">
     </div>
 
     {{-- TULISAN PORTAL (RATA TENGAH) --}}
@@ -30,7 +30,7 @@
             
             <div class="form-group-login">
                 <label style="text-align: left; display: block; color: #333;">Email</label>
-                <input type="email" name="email" value="{{ Cookie::get('remember_email') ?? old('email') }}" placeholder="admin@bosowa.com" required>
+                <input type="email" name="email" value="{{ Cookie::get('remember_email') ?? old('email') }}" placeholder="bosowabandarindo@gmail.com" required>
             </div>
 
             <div class="form-group-login" style="margin-top: 15px;">

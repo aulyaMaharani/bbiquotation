@@ -266,7 +266,7 @@
             left: 50%;
             width: 1200px;
             height: 800px;
-            background-image: url("{{ asset('images/logo-BBA-putih.png') }}");
+            background-image: url("{{ asset('images/logobosowa.png') }}");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -398,7 +398,7 @@
     <nav class="navbar">
         <div style="display: flex; align-items: center;">
             @if(Request::is('/') || Request::is('home'))
-                <img src="{{ asset('images/logo-BBA-putih.png') }}" alt="Logo Landing Page">
+                <img src="{{ asset('images/logobosowa.png') }}" alt="Logo Landing Page">
             @else
                 <img src="{{ asset('images/logobosowa.png') }}" alt="Logo Bosowa">
             @endif
